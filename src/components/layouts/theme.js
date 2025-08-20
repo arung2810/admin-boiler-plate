@@ -3,6 +3,7 @@ import { createTheme } from '@mui/material/styles';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
 import { Paper } from '../common/Paper';
+import { ButtonGroups } from '../common/ButtonGroups';
 
 
 const getTheme = () =>
@@ -27,6 +28,9 @@ const getTheme = () =>
       },
       MuiPaper: {
         ...Paper,
+      },
+      MuiButtonGroup: {
+        ...ButtonGroups,
       },
       
     },

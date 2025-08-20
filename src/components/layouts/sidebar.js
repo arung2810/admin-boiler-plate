@@ -5,85 +5,111 @@ import {
   Stack,
   Typography,
   Drawer,
-  useMediaQuery
+  useMediaQuery,
 } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   LuArrowLeftToLine,
   LuComponent,
-  LuChevronRight
+  LuChevronRight,
 } from "react-icons/lu";
 import { IoMdLogOut } from "react-icons/io";
 import { TbSmartHome } from "react-icons/tb";
 import SiteLogo from "../../assets/images/logo.png";
+
+const menuItems = [
+  {
+    label: "Dashboard",
+    icon: <TbSmartHome />,
+    path: "/dashboard",
+  },
+  {
+    label: "Components",
+    icon: <LuComponent />,
+    children: [
+      { label: "Alerts", path: "/alerts" },
+      { label: "Buttons", path: "/buttons" },
+      { label: "Button Groups", path: "/button-groups" },
+      { label: "Dialogs", path: "/dialogs" },
+    ],
+  },
+];
 
 const SidebarContent = ({
   onCloseSidebar,
   navigate,
   isActive,
   openMenuIndex,
-  handleMenuClick
+  handleMenuClick,
+  isMobile,
 }) => (
   <Stack className="sidebar-content">
     {/* Logo */}
-    <Stack direction="row" alignItems="center" justifyContent="space-between" gap={2} px={2} py={1.5}>
+    <Stack direction="row" justifyContent="space-between" px={2} py={1.5}>
       <Stack direction="row" alignItems="center" gap={1}>
         <img src={SiteLogo} alt="Vuexy" />
-        <Typography variant="h6" className="logo-text fw-600">
+        <Typography variant="h6" className="fw-600">
           Vuexy
         </Typography>
       </Stack>
-      <IconButton aria-label="Toggle Button" className="left-toggle-button" onClick={onCloseSidebar}>
+      <IconButton onClick={onCloseSidebar}>
         <LuArrowLeftToLine />
       </IconButton>
     </Stack>
 
     {/* Menu */}
     <Stack className="menu-wrapper top-menu" px={1} gap={1}>
-      <Box className="menu-item">
-        <Stack className={`menu-label ${isActive("/dashboard") ? "active" : ""}`} direction="row" alignItems="center" gap={1} onClick={() => { navigate("/dashboard"); onCloseSidebar && onCloseSidebar(); }}>
-          <TbSmartHome />
-          <Typography variant="h6" className="menu-text w-full">
-            Dashboard
-          </Typography>
-        </Stack>
-      </Box>
-
-      <Box className="menu-item">
-        <Stack className="menu-label" direction="row" alignItems="center" gap={1} onClick={() => handleMenuClick(0)}>
-          <LuComponent />
-          <Typography variant="h6" className="menu-text w-full">
-            Components
-          </Typography>
-          <LuChevronRight />
-        </Stack>
-        {openMenuIndex === 0 && (
-          <Stack className="submenu-wrapper" gap={1}>
-            <Box className={`submenu-item ${isActive("/alerts") ? "active" : ""}`} onClick={() => { navigate("/alerts"); onCloseSidebar && onCloseSidebar(); }}>
-              <Typography>Alerts</Typography>
-            </Box>
-            <Box className={`submenu-item ${isActive("/buttons") ? "active" : ""}`} onClick={() => { navigate("/buttons"); onCloseSidebar && onCloseSidebar(); }}>
-              <Typography>Buttons</Typography>
-            </Box>
+      {menuItems.map((item, index) => (
+        <Box key={item.label} className="menu-item">
+          <Stack
+            className={`menu-label ${isActive(item.path) ? "active" : ""}`}
+            direction="row"
+            alignItems="center"
+            gap={1}
+            onClick={() =>
+              item.children
+                ? handleMenuClick(index)
+                : (navigate(item.path),
+                  isMobile && onCloseSidebar && onCloseSidebar())
+            }
+          >
+            {item.icon}
+            <Typography variant="h6" className="menu-text w-full">
+              {item.label}
+            </Typography>
+            {item.children && <LuChevronRight />}
           </Stack>
-        )}
-      </Box>
+
+          {/* Submenu */}
+          {openMenuIndex === index && item.children && (
+            <Stack className="submenu-wrapper" gap={1}>
+              {item.children.map((sub) => (
+                <Box
+                  key={sub.path}
+                  className={`submenu-item ${
+                    isActive(sub.path) ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    navigate(sub.path);
+                    if (isMobile) onCloseSidebar();
+                  }}
+                >
+                  <Typography>{sub.label}</Typography>
+                </Box>
+              ))}
+            </Stack>
+          )}
+        </Box>
+      ))}
     </Stack>
 
-    {/* Bottom */}
+    {/* Bottom Menu */}
     <Stack className="menu-wrapper bottom-menu" px={1}>
       <Box className="menu-item">
         <Stack
-          className={`menu-label ${isActive("/sign-in") ? "active" : ""}`}
-          direction="row"
-          alignItems="center"
-          gap={1}
-          onClick={() => navigate("/sign-in")}
-        >
+          className='menu-label active' direction="row" alignItems="center" gap={1} onClick={() => {navigate("/sign-in");}}>
           <IoMdLogOut />
-          <Typography variant="h6" className="menu-text w-full">
-            Sign Out
-          </Typography>
+          <Typography variant="h6" className="menu-text w-full">Sign Out</Typography>
         </Stack>
       </Box>
     </Stack>
@@ -94,54 +120,41 @@ const Sidebar = ({ isOpen, onCloseSidebar }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useMediaQuery("(max-width:991.98px)");
-
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
 
-  const handleMenuClick = (index) => {
-    setOpenMenuIndex((prevIndex) => (prevIndex === index ? null : index));
-  };
+  const handleMenuClick = (index) =>
+    setOpenMenuIndex(openMenuIndex === index ? null : index);
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => path && location.pathname === path;
 
-  return (
-    <>
-      {!isMobile && (
-        <Box
-          className="sidebar-wrapper"
-          sx={{
-            left: isOpen ? "0px" : "-250px",
-          }}
-        >
-          <SidebarContent
-            onCloseSidebar={onCloseSidebar}
-            navigate={navigate}
-            isActive={isActive}
-            openMenuIndex={openMenuIndex}
-            handleMenuClick={handleMenuClick}
-          />
-        </Box>
-      )}
+  const sidebarContent = (
+    <SidebarContent
+      onCloseSidebar={onCloseSidebar}
+      navigate={navigate}
+      isActive={isActive}
+      openMenuIndex={openMenuIndex}
+      handleMenuClick={handleMenuClick}
+      isMobile={isMobile}
+    />
+  );
 
-      {isMobile && (
-        <Drawer
-          anchor="left"
-          open={isOpen}
-          onClose={onCloseSidebar}
-          ModalProps={{
-            keepMounted: true,
-          }}
-          className="mobile-sidebar"
-        >
-          <SidebarContent
-            onCloseSidebar={onCloseSidebar}
-            navigate={navigate}
-            isActive={isActive}
-            openMenuIndex={openMenuIndex}
-            handleMenuClick={handleMenuClick}
-          />
-        </Drawer>
-      )}
-    </>
+  return isMobile ? (
+    <Drawer
+      anchor="left"
+      open={isOpen}
+      onClose={onCloseSidebar}
+      ModalProps={{ keepMounted: true }}
+      className="mobile-sidebar"
+    >
+      {sidebarContent}
+    </Drawer>
+  ) : (
+    <Box
+      className="sidebar-wrapper"
+      sx={{ left: isOpen ? "0px" : "-250px" }}
+    >
+      {sidebarContent}
+    </Box>
   );
 };
 
