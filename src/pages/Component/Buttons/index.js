@@ -170,6 +170,20 @@ const ButtonsIcons = () => {
 
 export default ButtonsIcons`;
 
+  const codeStringCustomizedButtonClass = `// MUI Imports
+import IconButton from '@mui/material/IconButton'
+
+const ButtonsIcons = () => {
+  return (
+    <Stack direction='flex' gap={2}>
+      <Button className='btn primary-btn'>Primary</Button>
+      <Button className='btn secondary-btn'>Secondary</Button>
+    </Stack>
+  )
+}
+
+export default ButtonsIcons`;
+
   const handleCopy = async (codeKey) => {
     const codeMap = {
       contained: codeStringContained,
@@ -178,6 +192,7 @@ export default ButtonsIcons`;
       icon: codeStringIcon,
       buttonSize: codeStringButtonSize,
       buttonColors: codeStringButtonColors,
+      customizedButtonClass: codeStringCustomizedButtonClass,
     };
 
     try {
@@ -397,7 +412,7 @@ export default ButtonsIcons`;
                 </IconButton>
               </Tooltip>
               <Tooltip title="Copy Code">
-                <IconButton className='icon-button' onClick={() => handleCopy("icon")}>
+                <IconButton className='icon-button' onClick={() => handleCopy("buttonSize")}>
                   <TbCopy />
                 </IconButton>
               </Tooltip>
@@ -440,7 +455,7 @@ export default ButtonsIcons`;
                 </IconButton>
               </Tooltip>
               <Tooltip title="Copy Code">
-                <IconButton className='icon-button' onClick={() => handleCopy("icon")}>
+                <IconButton className='icon-button' onClick={() => handleCopy("buttonColors")}>
                   <TbCopy />
                 </IconButton>
               </Tooltip>
@@ -466,6 +481,39 @@ export default ButtonsIcons`;
               <Box className="code-block" sx={{ position: 'relative' }}>
                 <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
                   {codeStringButtonColors}
+                </SyntaxHighlighter>
+              </Box>
+            )}
+          </Stack>
+        </Paper>
+        
+        {/* CUSTOMIZED BUTTON AS CLASS BASE */}
+        <Paper elevation={0}>
+          <Stack direction="row" alignItems="center" justifyContent="space-between" mb={2}>
+            <Typography variant="h6" className="page-title">Customized Button as Class Base</Typography>
+            <Stack direction="row" spacing={1}>
+              <Tooltip title="Show Code">
+                <IconButton className='icon-button' onClick={() => setShowCode((prev) => ({ ...prev, customizedButtonClass: !prev.customizedButtonClass }))}>
+                  <RiCodeSSlashFill />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Copy Code">
+                <IconButton className='icon-button' onClick={() => handleCopy("customizedButtonClass")}>
+                  <TbCopy />
+                </IconButton>
+              </Tooltip>
+            </Stack>
+          </Stack>
+
+          <Stack gap={4}>
+            <Stack direction="row" flexWrap='wrap' gap={2}>
+              <Button className='btn primary-btn'>Primary</Button>
+              <Button className='btn secondary-btn'>Secondary</Button>
+            </Stack>
+            {showCode.customizedButtonClass && (
+              <Box className="code-block" sx={{ position: 'relative' }}>
+                <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
+                  {codeStringCustomizedButtonClass}
                 </SyntaxHighlighter>
               </Box>
             )}

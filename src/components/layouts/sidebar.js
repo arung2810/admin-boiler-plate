@@ -41,7 +41,7 @@ const SidebarContent = ({
     {/* Menu */}
     <Stack className="menu-wrapper top-menu" px={1} gap={1}>
       <Box className="menu-item">
-        <Stack className={`menu-label ${isActive("/dashboard") ? "active" : ""}`} direction="row" alignItems="center" gap={1} onClick={() => navigate("/dashboard")}>
+        <Stack className={`menu-label ${isActive("/dashboard") ? "active" : ""}`} direction="row" alignItems="center" gap={1} onClick={() => { navigate("/dashboard"); onCloseSidebar && onCloseSidebar(); }}>
           <TbSmartHome />
           <Typography variant="h6" className="menu-text w-full">
             Dashboard
@@ -59,10 +59,10 @@ const SidebarContent = ({
         </Stack>
         {openMenuIndex === 0 && (
           <Stack className="submenu-wrapper" gap={1}>
-            <Box className={`submenu-item ${isActive("/alerts") ? "active" : ""}`} onClick={() => navigate("/alerts")}>
+            <Box className={`submenu-item ${isActive("/alerts") ? "active" : ""}`} onClick={() => { navigate("/alerts"); onCloseSidebar && onCloseSidebar(); }}>
               <Typography>Alerts</Typography>
             </Box>
-            <Box className={`submenu-item ${isActive("/buttons") ? "active" : ""}`} onClick={() => navigate("/buttons")}>
+            <Box className={`submenu-item ${isActive("/buttons") ? "active" : ""}`} onClick={() => { navigate("/buttons"); onCloseSidebar && onCloseSidebar(); }}>
               <Typography>Buttons</Typography>
             </Box>
           </Stack>
@@ -127,6 +127,9 @@ const Sidebar = ({ isOpen, onCloseSidebar }) => {
           anchor="left"
           open={isOpen}
           onClose={onCloseSidebar}
+          ModalProps={{
+            keepMounted: true,
+          }}
           className="mobile-sidebar"
         >
           <SidebarContent
