@@ -1,0 +1,128 @@
+:root {
+    --white-color: #ffffff;
+    --primary-color:#7367F0;
+    --secondary-color:#808390;
+    --light-primary-color:#E5EDFF;
+    --pagination-color: #CBD9FE;
+
+
+
+    --font-family:Montserrat;
+}
+[data-theme="light"] {
+    --body-bg-color: #f8f7fa;
+    --card-bg-color: #ffffff;
+    --border-color: #e6e6e8;
+    --text-color: #423f50;
+    // --dark-color: #222222;
+    // --grey-color: #717684;
+    // --input-border-color: #F1F2F9;
+    --menu-hover-color:#cfcde45e;
+}
+
+[data-theme="dark"] {
+    --body-bg-color: #25293c;
+    --card-bg-color: #2f3349;
+    --border-color: #44485e;
+    --text-color: #cfcce3;
+    --menu-hover-color:#fdfdff1f;
+
+
+}
+
+body {
+    color: initial !important;
+    background-color: var(--body-bg-color) !important;
+}
+.fw-400{
+    font-weight: 400 !important;
+}
+.fw-500{
+    font-weight: 500 !important;
+}
+.fw-600{
+    font-weight: 600 !important;
+}
+.fw-700{
+    font-weight: 700 !important; 
+}
+.text-primary{
+    color: var(--primary-color) !important;
+}
+.text-secondary{
+    color: var(--text-color) !important;
+}
+.text-color{
+    color: var(--text-color) !important;
+}
+.text-white{
+    color: var(--white-color);
+}
+.w-full{
+    width: 100%;
+}
+.w-fit{
+    width: fit-content !important;
+}
+.h-full{
+    height: 100%;
+}
+.no-scroll{
+    overflow: hidden !important;
+}
+.nowrap{
+    white-space: nowrap;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.text-center{
+    text-align: center;
+}
+.btn {
+    &.primary-btn {
+        background: var(--primary-color);
+        color: var(--white-color);
+        border-color: var(--primary-color);
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+        &:hover {
+            background-color: var(--primary-color);
+            box-shadow: 0px 2px 6px rgba(34, 34, 34, 0.2);
+        }
+    }
+    &.text-btn{
+        background: transparent;
+        color: var(--dark-color);
+        border: none;
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+.field-wrapper{
+    position: relative;
+    .field-label{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 135%;
+        color: var(--text-color);
+        .required{
+            color: var(--red-color);
+        }
+    }   
+}
+.checkbox-label{
+    span{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 135%;
+        color: var(--text-color);
+    }
+}
