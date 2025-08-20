@@ -1,5 +1,8 @@
 import { createTheme } from '@mui/material/styles';
 
+import { Accordion } from '../common/Accordion';
+import { AccordionSummary } from '../common/AccordionSummary';
+import { AccordionDetails } from '../common/AccordionDetails';
 import { Button } from '../common/Button';
 import { Input } from '../common/Input';
 import { Paper } from '../common/Paper';
@@ -19,6 +22,15 @@ const getTheme = () =>
           },
         },
       },
+      MuiAccordion: {
+        ...Accordion,
+      },
+      MuiAccordionSummary: {
+        ...AccordionSummary,
+      },
+      MuiAccordionDetails: {
+        ...AccordionDetails,
+      },
       MuiButton: {
         ...Button,
       },
@@ -28,7 +40,6 @@ const getTheme = () =>
       MuiPaper: {
         ...Paper,
       },
-      
     },
   });
 

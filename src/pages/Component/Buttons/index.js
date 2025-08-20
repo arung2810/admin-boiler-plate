@@ -405,7 +405,7 @@ export default ButtonsIcons`;
           </Stack>
 
           <Stack gap={4}>
-            <Stack direction="row" flexWrap='wrap' gap={2}>
+            <Stack direction="row" alignItems={'center'} flexWrap='wrap' gap={2}>
               <Button variant='text' size='small'>Small</Button>
               <Button variant='text' size='medium'>Medium</Button>
               <Button variant='text' size='large'>Large</Button>

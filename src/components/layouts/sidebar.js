@@ -59,6 +59,9 @@ const SidebarContent = ({
         </Stack>
         {openMenuIndex === 0 && (
           <Stack className="submenu-wrapper" gap={1}>
+            <Box className={`submenu-item ${isActive("/accordions") ? "active" : ""}`} onClick={() => navigate("/accordions")}>
+              <Typography>Accordions</Typography>
+            </Box>
             <Box className={`submenu-item ${isActive("/alerts") ? "active" : ""}`} onClick={() => navigate("/alerts")}>
               <Typography>Alerts</Typography>
             </Box>
