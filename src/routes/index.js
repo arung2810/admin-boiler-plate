@@ -5,7 +5,10 @@ import Dashboard from '../pages/Dashboard';
 import AppLayout from '../components/layouts';
 import AccordionPage from '../pages/Component/Accordions';
 import AlertPage from '../pages/Component/Alerts';
+import AvatarPage from '../pages/Component/Avatars';
+import BadgePage from '../pages/Component/Badges';
 import ButtonPage from '../pages/Component/Buttons';
+import ChipsPage from '../pages/Component/Chips';
 
 function AppRouter() {
   return (
@@ -20,7 +23,10 @@ function AppRouter() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/accordions" element={<AccordionPage />} />
           <Route path="/alerts" element={<AlertPage />} />
+          <Route path="/avatars" element={<AvatarPage />} />
+          <Route path="/badges" element={<BadgePage />} />
           <Route path="/buttons" element={<ButtonPage />} />
+          <Route path="/chips" element={<ChipsPage />} />
         </Route>
       </Routes>
     </Router>

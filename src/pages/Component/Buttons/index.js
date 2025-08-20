@@ -26,7 +26,8 @@ function ButtonPage() {
   });
   const [copySuccess, setCopySuccess] = useState(false);
 
-  const codeStringContained = `// MUI Imports
+  const codeStringContained = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import Button from '@mui/material/Button'
 
 const ButtonsContained = () => {
@@ -44,7 +45,8 @@ const ButtonsContained = () => {
 
 export default ButtonsContained`;
 
-  const codeStringText = `// MUI Imports
+  const codeStringText = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import Button from '@mui/material/Button'
 
 const ButtonsText = () => {
@@ -62,7 +64,8 @@ const ButtonsText = () => {
 
 export default ButtonsText`;
 
-  const codeStringOutlined = `// MUI Imports
+  const codeStringOutlined = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import Button from '@mui/material/Button'
 
 const ButtonsOutlined = () => {
@@ -80,7 +83,8 @@ const ButtonsOutlined = () => {
 
 export default ButtonsOutlined`;
 
-  const codeStringIconLabel = `// MUI Imports
+  const codeStringIconLabel = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import Button from '@mui/material/Button'
 
 const ButtonsWithIconAndLabel = () => {
@@ -98,7 +102,8 @@ const ButtonsWithIconAndLabel = () => {
 
 export default ButtonsWithIconAndLabel`;
 
-  const codeStringIcon = `// MUI Imports
+  const codeStringIcon = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import IconButton from '@mui/material/IconButton'
 
 const ButtonsIcons = () => {
@@ -122,7 +127,8 @@ const ButtonsIcons = () => {
 
 export default ButtonsIcons`;
 
-  const codeStringButtonSize = `// MUI Imports
+  const codeStringButtonSize = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import IconButton from '@mui/material/IconButton'
 
 const ButtonsIcons = () => {
@@ -146,7 +152,8 @@ const ButtonsIcons = () => {
 
 export default ButtonsIcons`;
 
-  const codeStringButtonColors = `// MUI Imports
+  const codeStringButtonColors = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import IconButton from '@mui/material/IconButton'
 
 const ButtonsIcons = () => {
@@ -170,7 +177,8 @@ const ButtonsIcons = () => {
 
 export default ButtonsIcons`;
 
-  const codeStringCustomizedButtonClass = `// MUI Imports
+  const codeStringCustomizedButtonClass = `// If you want to change the style of the button, you can do so in the theme.js file
+// MUI Imports
 import IconButton from '@mui/material/IconButton'
 
 const ButtonsIcons = () => {
