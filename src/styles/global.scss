@@ -114,8 +114,20 @@ body {
             box-shadow: 0px 2px 6px rgba(34, 34, 34, 0.2);
         }
     }
-
-    &.text-btn {
+    &.secondary-btn {
+        background: var(--secondary-color);
+        color: var(--white-color);
+        border-color: var(--secondary-color);
+        svg{
+            width: 20px;
+            height: 20px;
+        }
+        &:hover {
+            background-color: var(--secondary-color);
+            box-shadow: 0px 2px 6px rgba(34, 34, 34, 0.2);
+        }
+    }
+    &.text-btn{
         background: transparent;
         color: var(--dark-color);
         border: none;
