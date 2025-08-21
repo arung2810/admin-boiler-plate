@@ -4,6 +4,7 @@ import { Button } from '../common/Button';
 import { Input } from '../common/Input';
 import { Paper } from '../common/Paper';
 import { ButtonGroups } from '../common/ButtonGroups';
+import { Dialogs } from '../common/Dialogs';
 
 
 const getTheme = () =>
@@ -32,7 +33,9 @@ const getTheme = () =>
       MuiButtonGroup: {
         ...ButtonGroups,
       },
-      
+      MuiDialog: {
+        ...Dialogs,
+      },
     },
   });
 
