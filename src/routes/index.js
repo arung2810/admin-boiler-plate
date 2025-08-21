@@ -11,6 +11,9 @@ import ButtonPage from '../pages/Component/Buttons';
 import ChipsPage from '../pages/Component/Chips';
 import ButtonGroupsPage from '../pages/Component/ButtonGroups';
 import DialogsPage from '../pages/Component/Dialogs';
+import CheckboxPage from '../pages/FormElement/Checkbox';
+import RadioPage from '../pages/FormElement/Radio';
+import TextFieldPage from '../pages/FormElement/TextField';
 
 function AppRouter() {
   return (
@@ -31,6 +34,9 @@ function AppRouter() {
           <Route path="/chips" element={<ChipsPage />} />
           <Route path="/button-groups" element={<ButtonGroupsPage />} />
           <Route path="/dialogs" element={<DialogsPage />} />
+          <Route path="/checkbox" element={<CheckboxPage />} />
+          <Route path="/radio" element={<RadioPage />} />
+          <Route path="/textfield" element={<TextFieldPage />} />
         </Route>
       </Routes>
     </Router>

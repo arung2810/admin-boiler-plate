@@ -37,6 +37,15 @@ const menuItems = [
       { label: "Dialogs", path: "/dialogs" },
     ],
   },
+  {
+    label: "Form Elements",
+    icon: <LuComponent />,
+    children: [
+      { label: "Text Field", path: "/textfield" },
+      { label: "Checkbox", path: "/checkbox" },
+      { label: "Radio", path: "/radio" }
+    ]
+  }
 ];
 
 const SidebarContent = ({
@@ -53,9 +62,7 @@ const SidebarContent = ({
     <Stack direction="row" justifyContent="space-between" px={2} py={1.5}>
       <Stack direction="row" alignItems="center" gap={1}>
         <img src={SiteLogo} alt="Vuexy" />
-        <Typography variant="h6" className="fw-600">
-          Vuexy
-        </Typography>
+        <Typography variant="h6" className="logo-text fw-600">Vuexy</Typography>
       </Stack>
       <IconButton onClick={onCloseSidebar}>
         <LuArrowLeftToLine />

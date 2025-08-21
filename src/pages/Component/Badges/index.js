@@ -167,7 +167,7 @@ export default BadgesOverlay`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Badge badgeContent={4} color='primary'>
                 <Avatar src={`${imagePath(1)}`} alt='User Avatar' />
@@ -217,7 +217,7 @@ export default BadgesOverlay`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Badge variant='dot' color='primary'>
                 <Avatar src={`${imagePath(6)}`} alt='User Avatar' />
@@ -258,7 +258,7 @@ export default BadgesOverlay`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Badge color='primary' variant='dot'>
                 <Avatar src={`${imagePath(6)}`} alt='User Avatar' />
@@ -302,7 +302,7 @@ export default BadgesOverlay`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Badge color='primary' badgeContent=' '>
                 <Avatar src={`${imagePath(6)}`} alt='User Avatar' variant='square' />

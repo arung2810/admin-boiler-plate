@@ -1,22 +1,58 @@
 import { createTheme } from '@mui/material/styles';
 
-import { Accordion } from '../common/Accordion';
-import { AccordionSummary } from '../common/AccordionSummary';
-import { AccordionDetails } from '../common/AccordionDetails';
+import { Accordion, AccordionSummary, AccordionDetails } from '../common/Accordion';
 import { Avatar } from '../common/Avatar';
 import { Badge } from '../common/Badge';
 import { Button } from '../common/Button';
 import { Chip } from '../common/Chip';
-import { Input } from '../common/Input';
+import { MuiFormControl, MuiInputBase, MuiFilledInput, MuiInputLabel, MuiOutlinedInput, MuiInputAdornment, MuiFormHelperText } from '../common/Input';
 import { Paper } from '../common/Paper';
 import { Checkbox } from '../common/Checkbox';
 import { ButtonGroups } from '../common/ButtonGroups';
+import { FormControlLabel } from '../common/FormControlLabel';
+import { Radio } from '../common/Radio';
 
 
 const getTheme = () =>
   createTheme({
     typography: {
-      fontFamily: 'Inter',
+      fontFamily: [
+        'Inter',
+        'sans-serif',
+      ].join(','),
+      h1: {
+        fontSize: 56,
+      },
+      h2: {
+        fontSize: 40,
+      },
+      h3: {
+        fontSize: 36,
+      },
+      h4: {
+        fontSize: 32,
+      },
+      h5: {
+        fontSize: 24,
+      },
+      h6: {
+        fontSize: 20,
+      },
+      subtitle1: {
+        fontSize: 18,
+      },
+      subtitle2: {
+        fontSize: 14,
+      },
+      body1: {
+        fontSize: 16,
+      },
+      body2: {
+        fontSize: 14,
+      },
+      caption: {
+        fontSize: 12,
+      },
     },
     components: {
       MuiContainer: {
@@ -51,8 +87,26 @@ const getTheme = () =>
       MuiChip: {
         ...Chip,
       },
-      MuiTextField: {
-        ...Input,
+      MuiFormControl: {
+        ...MuiFormControl
+      },
+      MuiInputBase: {
+        ...MuiInputBase
+      },
+      MuiFilledInput: {
+        ...MuiFilledInput
+      },
+      MuiInputLabel: {
+        ...MuiInputLabel
+      },
+      MuiOutlinedInput: {
+        ...MuiOutlinedInput
+      },
+      MuiInputAdornment: {
+        ...MuiInputAdornment
+      },
+      MuiFormHelperText: {
+        ...MuiFormHelperText
       },
       MuiPaper: {
         ...Paper,
@@ -60,7 +114,12 @@ const getTheme = () =>
       MuiButtonGroup: {
         ...ButtonGroups,
       },
-      
+      MuiFormControlLabel: {
+        ...FormControlLabel
+      },
+      MuiRadio: {
+        ...Radio,
+      },
     },
   });
 
