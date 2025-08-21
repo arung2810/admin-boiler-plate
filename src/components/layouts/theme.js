@@ -11,6 +11,7 @@ import { Input } from '../common/Input';
 import { Paper } from '../common/Paper';
 import { Checkbox } from '../common/Checkbox';
 import { ButtonGroups } from '../common/ButtonGroups';
+import { Dialogs } from '../common/Dialogs';
 
 
 const getTheme = () =>
@@ -60,7 +61,9 @@ const getTheme = () =>
       MuiButtonGroup: {
         ...ButtonGroups,
       },
-      
+      MuiDialog: {
+        ...Dialogs,
+      },
     },
   });
 
