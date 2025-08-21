@@ -9,6 +9,8 @@ import AvatarPage from '../pages/Component/Avatars';
 import BadgePage from '../pages/Component/Badges';
 import ButtonPage from '../pages/Component/Buttons';
 import ChipsPage from '../pages/Component/Chips';
+import ButtonGroupsPage from '../pages/Component/ButtonGroups';
+import DialogsPage from '../pages/Component/Dialogs';
 
 function AppRouter() {
   return (
@@ -27,6 +29,8 @@ function AppRouter() {
           <Route path="/badges" element={<BadgePage />} />
           <Route path="/buttons" element={<ButtonPage />} />
           <Route path="/chips" element={<ChipsPage />} />
+          <Route path="/button-groups" element={<ButtonGroupsPage />} />
+          <Route path="/dialogs" element={<DialogsPage />} />
         </Route>
       </Routes>
     </Router>

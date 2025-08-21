@@ -32,8 +32,9 @@ const menuItems = [
       { label: "Avatars", path: "/avatars" },
       { label: "Badges", path: "/badges" },
       { label: "Buttons", path: "/buttons" },
-      { label: "Button Groups", path: "/button-groups" },
       { label: "Chips", path: "/chips" },
+      { label: "Button Groups", path: "/button-groups" },
+      { label: "Dialogs", path: "/dialogs" },
     ],
   },
 ];
@@ -128,9 +129,7 @@ const SidebarContent = ({
           }}
         >
           <IoMdLogOut />
-          <Typography variant="h6" className="menu-text w-full">
-            Sign Out
-          </Typography>
+          <Typography variant="h6" className="menu-text w-full">Sign Out</Typography>
         </Stack>
       </Box>
     </Stack>

@@ -10,6 +10,7 @@ import { Chip } from '../common/Chip';
 import { Input } from '../common/Input';
 import { Paper } from '../common/Paper';
 import { Checkbox } from '../common/Checkbox';
+import { ButtonGroups } from '../common/ButtonGroups';
 
 
 const getTheme = () =>
@@ -56,6 +57,10 @@ const getTheme = () =>
       MuiPaper: {
         ...Paper,
       },
+      MuiButtonGroup: {
+        ...ButtonGroups,
+      },
+      
     },
   });
 
