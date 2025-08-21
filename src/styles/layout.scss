@@ -40,6 +40,7 @@
 }
 .sidebar-content{
     overflow-y: hidden;
+    height: 100%;
     .logo-text{
         color: var(--text-color);
         font-size: 22px;
@@ -50,10 +51,11 @@
 }
 .menu-wrapper{
     &.top-menu{
-        height: calc(100vh - 144px);
+        // height: calc(100vh - 144px);
+        flex: 1;
         margin-top: 26px;
         overflow: auto;
-        overflow-y: hidden;
+        overflow-x: hidden;
     }
     .menu-item{
         &.open{
@@ -77,6 +79,11 @@
             svg{
                 width: 20px;
                 height: 20px;
+                transition: 0.2s transform;
+
+                &.rotate-90 {
+                    transform: rotate(90deg);
+                }
             }
             .menu-text{
                 font-weight: 500;

@@ -16,17 +16,19 @@
     --blue-rgb-color:2, 136, 209;
 
 
-    --font-family:Montserrat;
+    --font-family: Montserrat;
 }
+
 [data-theme="light"] {
     --body-bg-color: #f8f7fa;
     --card-bg-color: #ffffff;
     --border-color: #e6e6e8;
     --text-color: #423f50;
+    --text-color-rgb: 66, 63, 80;
     // --dark-color: #222222;
     // --grey-color: #717684;
     // --input-border-color: #F1F2F9;
-    --menu-hover-color:#cfcde45e;
+    --menu-hover-color: #cfcde45e;
 }
 
 [data-theme="dark"] {
@@ -34,7 +36,8 @@
     --card-bg-color: #2f3349;
     --border-color: #44485e;
     --text-color: #cfcce3;
-    --menu-hover-color:#fdfdff1f;
+    --text-color-rgb: 180, 180, 190;
+    --menu-hover-color: #fdfdff1f;
 
 
 }
@@ -43,60 +46,78 @@ body {
     color: initial !important;
     background-color: var(--body-bg-color) !important;
 }
-.fw-400{
+
+.fw-400 {
     font-weight: 400 !important;
 }
-.fw-500{
+
+.fw-500 {
     font-weight: 500 !important;
 }
-.fw-600{
+
+.fw-600 {
     font-weight: 600 !important;
 }
-.fw-700{
-    font-weight: 700 !important; 
+
+.fw-700 {
+    font-weight: 700 !important;
 }
-.text-primary{
+
+.text-primary {
     color: var(--primary-color) !important;
 }
-.text-secondary{
+
+.text-secondary {
     color: var(--text-color) !important;
 }
-.text-color{
+
+.text-color {
     color: var(--text-color) !important;
 }
-.text-white{
+
+.text-white {
     color: var(--white-color);
 }
-.w-full{
+
+.w-full {
     width: 100%;
 }
-.w-fit{
+
+.w-fit {
     width: fit-content !important;
 }
-.h-full{
+
+.h-full {
     height: 100%;
 }
-.no-scroll{
+
+.no-scroll {
     overflow: hidden !important;
 }
-.nowrap{
+
+.nowrap {
     white-space: nowrap;
 }
-.cursor-pointer{
+
+.cursor-pointer {
     cursor: pointer;
 }
-.text-center{
+
+.text-center {
     text-align: center;
 }
+
 .btn {
     &.primary-btn {
         background: var(--primary-color);
         color: var(--white-color);
         border-color: var(--primary-color);
-        svg{
+
+        svg {
             width: 20px;
             height: 20px;
         }
+
         &:hover {
             background-color: var(--primary-color);
             box-shadow: 0px 2px 6px rgba(34, 34, 34, 0.2);
@@ -119,28 +140,32 @@ body {
         background: transparent;
         color: var(--dark-color);
         border: none;
-        svg{
+
+        svg {
             width: 20px;
             height: 20px;
         }
     }
 }
 
-.field-wrapper{
+.field-wrapper {
     position: relative;
-    .field-label{
+
+    .field-label {
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
         line-height: 135%;
         color: var(--text-color);
-        .required{
+
+        .required {
             color: var(--red-color);
         }
-    }   
+    }
 }
-.checkbox-label{
-    span{
+
+.checkbox-label {
+    span {
         font-style: normal;
         font-weight: 500;
         font-size: 16px;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import {
   Box,
   IconButton,
@@ -27,8 +27,12 @@ const menuItems = [
     label: "Components",
     icon: <LuComponent />,
     children: [
+      { label: "Accordions", path: "/accordions" },
       { label: "Alerts", path: "/alerts" },
+      { label: "Avatars", path: "/avatars" },
+      { label: "Badges", path: "/badges" },
       { label: "Buttons", path: "/buttons" },
+      { label: "Chips", path: "/chips" },
       { label: "Button Groups", path: "/button-groups" },
       { label: "Dialogs", path: "/dialogs" },
     ],
@@ -42,6 +46,7 @@ const SidebarContent = ({
   openMenuIndex,
   handleMenuClick,
   isMobile,
+  setOpenMenuIndex,
 }) => (
   <Stack className="sidebar-content">
     {/* Logo */}
@@ -66,18 +71,26 @@ const SidebarContent = ({
             direction="row"
             alignItems="center"
             gap={1}
-            onClick={() =>
-              item.children
-                ? handleMenuClick(index)
-                : (navigate(item.path),
-                  isMobile && onCloseSidebar && onCloseSidebar())
-            }
+            onClick={() => {
+              if (item.children) {
+                handleMenuClick(index);
+              } else {
+                navigate(item.path);
+                setOpenMenuIndex(null); // close submenu when going to a parent
+                if (isMobile && onCloseSidebar) onCloseSidebar();
+              }
+            }}
           >
             {item.icon}
             <Typography variant="h6" className="menu-text w-full">
               {item.label}
             </Typography>
-            {item.children && <LuChevronRight />}
+            {item.children && (
+              <LuChevronRight
+                className={`transition-transform duration-300 ${openMenuIndex === index ? "rotate-90" : ""
+                  }`}
+              />
+            )}
           </Stack>
 
           {/* Submenu */}
@@ -86,12 +99,12 @@ const SidebarContent = ({
               {item.children.map((sub) => (
                 <Box
                   key={sub.path}
-                  className={`submenu-item ${
-                    isActive(sub.path) ? "active" : ""
-                  }`}
+                  className={`submenu-item ${isActive(sub.path) ? "active" : ""
+                    }`}
                   onClick={() => {
                     navigate(sub.path);
-                    if (isMobile) onCloseSidebar();
+                    setOpenMenuIndex(index); // keep open for active child
+                    if (isMobile && onCloseSidebar) onCloseSidebar();
                   }}
                 >
                   <Typography>{sub.label}</Typography>
@@ -104,10 +117,17 @@ const SidebarContent = ({
     </Stack>
 
     {/* Bottom Menu */}
-    <Stack className="menu-wrapper bottom-menu" px={1}>
+    <Stack className="menu-wrapper bottom-menu" my={1} px={1}>
       <Box className="menu-item">
         <Stack
-          className='menu-label active' direction="row" alignItems="center" gap={1} onClick={() => {navigate("/sign-in");}}>
+          className="menu-label"
+          direction="row"
+          alignItems="center"
+          gap={1}
+          onClick={() => {
+            navigate("/sign-in");
+          }}
+        >
           <IoMdLogOut />
           <Typography variant="h6" className="menu-text w-full">Sign Out</Typography>
         </Stack>
@@ -125,7 +145,17 @@ const Sidebar = ({ isOpen, onCloseSidebar }) => {
   const handleMenuClick = (index) =>
     setOpenMenuIndex(openMenuIndex === index ? null : index);
 
-  const isActive = (path) => path && location.pathname === path;
+  const isActive = useCallback(
+    (path) => path && location.pathname === path,
+    [location.pathname]
+  );
+
+  useEffect(() => {
+    const activeIndex = menuItems.findIndex((item) =>
+      item.children?.some((sub) => isActive(sub.path))
+    );
+    setOpenMenuIndex(activeIndex >= 0 ? activeIndex : null);
+  }, [location.pathname, isActive]);
 
   const sidebarContent = (
     <SidebarContent
@@ -135,11 +165,13 @@ const Sidebar = ({ isOpen, onCloseSidebar }) => {
       openMenuIndex={openMenuIndex}
       handleMenuClick={handleMenuClick}
       isMobile={isMobile}
+      setOpenMenuIndex={setOpenMenuIndex}
     />
   );
 
   return isMobile ? (
     <Drawer
+      variant={isMobile ? "persistent" : "permanent"}
       anchor="left"
       open={isOpen}
       onClose={onCloseSidebar}

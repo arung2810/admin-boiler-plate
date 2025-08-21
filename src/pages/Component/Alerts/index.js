@@ -9,7 +9,8 @@ function AlertPage() {
   const [showCode, setShowCode] = useState({ basic: false, outlined: false, filled: false, description: false });
   const [copySuccess, setCopySuccess] = useState(false);
 
-const codeStringBasic = `// MUI Imports
+const codeStringBasic = `// If you want to change the style of the alert, you can do so in the theme.js file
+// MUI Imports
 import Alert from '@mui/material/Alert'
 
 const AlertsBasic = () => {
@@ -25,7 +26,8 @@ const AlertsBasic = () => {
 
 export default AlertsBasic`;
 
-const codeStringOutlined = `// MUI Imports
+const codeStringOutlined = `// If you want to change the style of the alert, you can do so in the theme.js file
+// MUI Imports
 import Alert from '@mui/material/Alert'
 
 const AlertsOutlined = () => {
@@ -49,7 +51,8 @@ const AlertsOutlined = () => {
 
 export default AlertsOutlined`;
 
-const codeStringFilled = `// MUI Imports
+const codeStringFilled = `// If you want to change the style of the alert, you can do so in the theme.js file
+// MUI Imports
 import Alert from '@mui/material/Alert'
 
 const AlertsFilled = () => {
@@ -73,7 +76,8 @@ const AlertsFilled = () => {
 
 export default AlertsFilled`;
 
-const codeStringDescription = `// MUI Imports
+const codeStringDescription = `// If you want to change the style of the alert, you can do so in the theme.js file
+// MUI Imports
 import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
 
