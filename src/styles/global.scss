@@ -10,7 +10,7 @@
     --green-rgb-color:46, 125, 50;
     --red-color:#d32f2f;
     --red-rgb-color:211, 47, 47;
-    --yellow-color:#ed6c02;
+    --yellow-color:#ff9f43;
     --yellow-rgb-color:237, 108, 2;
     --blue-color:#0288d1;
     --blue-rgb-color:2, 136, 209;
@@ -41,7 +41,26 @@
 
 
 }
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: var(--menu-hover-color);
+}
 
+::-webkit-scrollbar
+{
+    width: 4px;
+    border-radius: 10px;
+    background-color: var(--menu-hover-color);
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: var(--primary-color);
+}
 body {
     color: initial !important;
     background-color: var(--body-bg-color) !important;

@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import {
-  Box,
-  IconButton,
-  Stack,
-  Typography,
-  Drawer,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, IconButton, Stack, Typography, Drawer, useMediaQuery } from "@mui/material";
 import { useNavigate, useLocation } from "react-router-dom";
 import {
   LuArrowLeftToLine,
@@ -35,6 +28,11 @@ const menuItems = [
       { label: "Chips", path: "/chips" },
       { label: "Button Groups", path: "/button-groups" },
       { label: "Dialogs", path: "/dialogs" },
+      { label: "List", path: "/list" },
+      { label: "Menu", path: "/menu" },
+      { label: "Pagination", path: "/pagination" },
+      { label: "Progress", path: "/progress" },
+      { label: "Ratings", path: "/ratings" },
     ],
   },
 ];
@@ -53,7 +51,7 @@ const SidebarContent = ({
     <Stack direction="row" justifyContent="space-between" px={2} py={1.5}>
       <Stack direction="row" alignItems="center" gap={1}>
         <img src={SiteLogo} alt="Vuexy" />
-        <Typography variant="h6" className="fw-600">
+        <Typography variant="h6" className="fw-600 page-title">
           Vuexy
         </Typography>
       </Stack>
@@ -170,16 +168,23 @@ const Sidebar = ({ isOpen, onCloseSidebar }) => {
   );
 
   return isMobile ? (
-    <Drawer
-      variant={isMobile ? "persistent" : "permanent"}
-      anchor="left"
-      open={isOpen}
-      onClose={onCloseSidebar}
-      ModalProps={{ keepMounted: true }}
-      className="mobile-sidebar"
-    >
-      {sidebarContent}
-    </Drawer>
+    <>
+      <Drawer
+        variant={isMobile ? "persistent" : "permanent"}
+        anchor="left"
+        open={isOpen}
+        onClose={onCloseSidebar}
+        ModalProps={{ keepMounted: true }}
+        className="mobile-sidebar"
+      >
+        {sidebarContent}
+      </Drawer>
+      {isOpen && (
+        <>
+          <Box className="sidebar-backdrop" onClick={onCloseSidebar} />
+        </>
+      )}
+    </>
   ) : (
     <Box
       className="sidebar-wrapper"

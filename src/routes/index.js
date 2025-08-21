@@ -11,6 +11,11 @@ import ButtonPage from '../pages/Component/Buttons';
 import ChipsPage from '../pages/Component/Chips';
 import ButtonGroupsPage from '../pages/Component/ButtonGroups';
 import DialogsPage from '../pages/Component/Dialogs';
+import ListPage from '../pages/Component/List';
+import MenuPage from '../pages/Component/Menu';
+import PaginationPage from '../pages/Component/Pagination';
+import ProgressPage from '../pages/Component/Progress';
+import RatingsPage from '../pages/Component/Ratings';
 
 function AppRouter() {
   return (
@@ -31,6 +36,11 @@ function AppRouter() {
           <Route path="/chips" element={<ChipsPage />} />
           <Route path="/button-groups" element={<ButtonGroupsPage />} />
           <Route path="/dialogs" element={<DialogsPage />} />
+          <Route path="/list" element={<ListPage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/pagination" element={<PaginationPage />} />
+          <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/ratings" element={<RatingsPage />} />
         </Route>
       </Routes>
     </Router>

@@ -13,7 +13,7 @@ export const AccordionSummary = {
       }
     },
     content: {
-      margin: '12px 0',
+      // margin: '12px 0',
       margin: 0,
       color: 'var(--text-color)',
       '&.Mui-expanded': {
