@@ -170,7 +170,15 @@
         border-radius: 12px;
     }
 }
-
+.sidebar-backdrop{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1198;
+    background-color: rgba(0,0,0,0.4);
+}
 @media only screen and (max-width: 991.98px) {
   .sidebar-content{
     width: 250px;

@@ -17,7 +17,7 @@ function DialogsPage() {
   const [copySuccess, setCopySuccess] = useState(false);
 
   const codeStringAlertDialog = `
-// If you want to change the style of the button groups, you can do so in the theme.js file
+// If you want to change the style of the Dialogs, you can do so in the theme.js file
 // React Imports
 import { useState } from 'react'
 
@@ -68,7 +68,7 @@ const DialogsAlert = () => {
 export default DialogsAlert`;
 
   const codeStringFullDialog = `
-// If you want to change the style of the button groups, you can do so in the theme.js file
+// If you want to change the style of the Dialogs, you can do so in the theme.js file
 // React Imports
 import { useState } from 'react'
 
@@ -116,7 +116,7 @@ const DialogsFull = () => {
 export default DialogsAlert`;
 
   const codeStringResponsiveFullDialog = `
-// If you want to change the style of the button groups, you can do so in the theme.js file
+// If you want to change the style of the Dialogs, you can do so in the theme.js file
 // React Imports
 import { useState } from 'react'
 
@@ -173,7 +173,7 @@ const DialogsRespoFullScreen = () => {
 export default DialogsRespoFullScreen`;
 
   const codeStringScrollingLongContentDialog = `
-// If you want to change the style of the button groups, you can do so in the theme.js file
+// If you want to change the style of the Dialogs, you can do so in the theme.js file
 // React Imports
 import { useEffect, useRef, useState } from 'react'
 
