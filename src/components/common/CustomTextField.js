@@ -11,7 +11,7 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
     maxWidth: '100%',
     lineHeight: 1.153,
     position: 'relative',
-    fontSize: theme.typography.body1.fontSize,
+    fontSize: theme.typography.body2.fontSize,
     marginBottom: theme.spacing(1),
     color: 'var(--text-color)',
     '&:not(.Mui-error).MuiFormLabel-colorPrimary.Mui-focused': {
@@ -49,7 +49,7 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
       display: 'none'
     },
     '&.MuiInputBase-sizeSmall': {
-      borderRadius: '4px'
+      borderRadius: '6px'
     },
     '&.Mui-error': {
       borderColor: 'var(--red-color)'
@@ -151,6 +151,7 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
     borderRadius: '8px',
     fontSize: theme.typography.body1.fontSize,
     lineHeight: '1.41',
+    padding: 0,
     '& .MuiInputBase-input': {
       padding: '12px 16px'
     },
@@ -179,17 +180,41 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
     '&.MuiInputBase-sizeSmall': {
       padding: '6px 14px',
       '&.Mui-focused': {
-        padding: '6px 14px'
+        padding: '5px 13px'
       }
     },
     '& textarea.MuiInputBase-inputSizeSmall:placeholder-shown': {
       overflowX: 'hidden'
     }
-  }
+  },
+
+  // For Select
+  '& .MuiSelect-select.MuiInputBase-inputSizeSmall, & .MuiNativeSelect-select.MuiInputBase-inputSizeSmall': {
+    '& ~ i, & ~ svg': {
+      inlineSize: '1.125rem',
+      blockSize: '1.125rem'
+    }
+  },
+  '& .MuiSelect-select': {
+    // lineHeight: 1.5,
+    minHeight: 'unset !important',
+    lineHeight: '1.4375em',
+    '&.MuiInputBase-input': {
+      paddingInlineEnd: '32px !important'
+    }
+  },
+  '& .Mui-focused .MuiSelect-select': {
+    '& ~ i, & ~ svg': {
+      right: '0.9375rem'
+    }
+  },
+  '& .MuiSelect-select:focus, & .MuiNativeSelect-select:focus': {
+    backgroundColor: 'transparent'
+  },
 }))
 
 const CustomTextField = forwardRef((props, ref) => {
-  const { size = 'medium', slotProps, ...rest } = props
+  const { size = 'small', slotProps, ...rest } = props
 
   return (
     <TextFieldStyled
