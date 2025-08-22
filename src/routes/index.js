@@ -19,6 +19,10 @@ import MenuPage from '../pages/Component/Menu';
 import PaginationPage from '../pages/Component/Pagination';
 import ProgressPage from '../pages/Component/Progress';
 import RatingsPage from '../pages/Component/Ratings';
+import TextAreaPage from '../pages/FormElement/Textarea';
+import SelectPage from '../pages/FormElement/Select';
+import SwitchPage from '../pages/FormElement/Switch';
+import AutocompletePage from '../pages/FormElement/Autocomplele';
 
 function AppRouter() {
   return (
@@ -47,6 +51,10 @@ function AppRouter() {
           <Route path="/pagination" element={<PaginationPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/ratings" element={<RatingsPage />} />
+          <Route path="/textarea" element={<TextAreaPage />} />
+          <Route path="/select" element={<SelectPage />} />
+          <Route path="/switch" element={<SwitchPage />} />
+          <Route path="/autocomplete" element={<AutocompletePage />} />
         </Route>
       </Routes>
     </Router>

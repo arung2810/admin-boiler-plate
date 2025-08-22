@@ -42,77 +42,52 @@ const CheckedIcon = () => {
 
 export const Checkbox = {
   styleOverrides: {
-    root: ({ theme, ownerState }) => ({
-      ...(ownerState.size === 'small'
-        ? {
-          padding: theme.spacing(0.75),
-          '& svg': {
-            fontSize: '1.25rem'
+    root: ({ theme, ownerState }) => {
+      const sizeStyles =
+        ownerState.size === 'small'
+          ? {
+            padding: theme.spacing(0.75),
+            '& svg': { fontSize: '1.25rem' },
           }
-        }
-        : {
-          padding: theme.spacing(1),
-          '& svg': {
-            fontSize: '1.5rem'
-          }
-        }),
-      '&:not(.Mui-checked):not(.Mui-disabled):not(.MuiCheckbox-indeterminate) svg, &:not(.Mui-checked):not(.Mui-disabled):not(.MuiCheckbox-indeterminate) i': {
-        color: 'var(--text-color)',
-      },
-      '&.Mui-checked:not(.Mui-disabled) svg, &.MuiCheckbox-indeterminate:not(.Mui-disabled) svg': {
+          : {
+            padding: theme.spacing(1),
+            '& svg': { fontSize: '1.5rem' },
+          };
 
-      },
-      '&.Mui-checked, &.MuiCheckbox-indeterminate': {
-        '&.MuiCheckbox-colorPrimary': {
-          color: 'var(--primary-color)',
-        },
-        '&.MuiCheckbox-colorSecondary': {
-          color: 'var(--secondary-color)',
-        },
-        '&.MuiCheckbox-colorError': {
-          color: 'var(--red-color)',
-        },
-        '&.MuiCheckbox-colorWarning': {
-          color: 'var(--yellow-color)',
-        },
-        '&.MuiCheckbox-colorInfo': {
-          color: 'var(--blue-color)',
-        },
-        '&.MuiCheckbox-colorSuccess': {
-          color: 'var(--green-color)',
-        },
-      },
-      '&.Mui-disabled': {
-        opacity: 0.45,
-        '&:not(.Mui-checked)': {
+      return {
+        ...sizeStyles,
+        // Default (unchecked state)
+        '&:not(.Mui-checked):not(.Mui-disabled):not(.MuiCheckbox-indeterminate) svg, &:not(.Mui-checked):not(.Mui-disabled):not(.MuiCheckbox-indeterminate) i': {
           color: 'var(--text-color)',
         },
-        '&.Mui-checked': {
-          '&.MuiCheckbox-colorPrimary': {
-            color: 'var(--primary-color)',
-          },
-          '&.MuiCheckbox-colorSecondary': {
-            color: 'var(--secondary-color)',
-          },
-          '&.MuiCheckbox-colorError': {
-            color: 'var(--red-color)',
-          },
-          '&.MuiCheckbox-colorWarning': {
-            color: 'var(--yellow-color)',
-          },
-          '&.MuiCheckbox-colorInfo': {
-            color: 'var(--blue-color)',
-          },
-          '&.MuiCheckbox-colorSuccess': {
-            color: 'var(--green-color)',
+        // Disabled state
+        '&.Mui-disabled': {
+          opacity: 0.45,
+          '&:not(.Mui-checked):not(.MuiCheckbox-indeterminate)': {
+            color: 'var(--text-color)',
           },
         },
-      },
-    })
+        // Common checked & indeterminate styles (use a CSS variable)
+        '&.Mui-checked, &.MuiCheckbox-indeterminate': {
+          color: `var(--checkbox-color, var(--primary-color))`,
+        },
+        '&.Mui-disabled.Mui-checked, &.Mui-disabled.MuiCheckbox-indeterminate': {
+          color: `var(--checkbox-color, var(--primary-color))`,
+        },
+      };
+    },
   },
   defaultProps: {
     icon: <Icon />,
     indeterminateIcon: <IndeterminateIcon />,
-    checkedIcon: <CheckedIcon />
+    checkedIcon: <CheckedIcon />,
   },
-}
+  variants: [
+    { props: { color: 'primary' }, style: { '--checkbox-color': 'var(--primary-color)' } },
+    { props: { color: 'secondary' }, style: { '--checkbox-color': 'var(--secondary-color)' } },
+    { props: { color: 'error' }, style: { '--checkbox-color': 'var(--red-color)' } },
+    { props: { color: 'warning' }, style: { '--checkbox-color': 'var(--yellow-color)' } },
+    { props: { color: 'info' }, style: { '--checkbox-color': 'var(--blue-color)' } },
+    { props: { color: 'success' }, style: { '--checkbox-color': 'var(--green-color)' } },
+  ],
+};
