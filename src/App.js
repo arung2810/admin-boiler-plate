@@ -1,3 +1,6 @@
+import 'keen-slider/keen-slider.min.css'
+
+
 import AppRouter from './routes';
 
 import './assets/fonts/fonts.css';

@@ -17,6 +17,8 @@ import { Menu, MenuItem } from "../common/Menu";
 import { Pagination, PaginationItem } from "../common/Pagination";
 import { LinearProgress, CircularProgress } from "../common/Progress";
 import { Ratings } from '../common/Ratings';
+import { Tab, Tabs } from '../common/Tabs';
+import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '../common/Table';
 
 const getTheme = () =>
   createTheme({
@@ -109,6 +111,30 @@ const getTheme = () =>
       },
       MuiRating: {
         ...Ratings,
+      },
+      MuiTabs: { 
+        ...Tabs
+      },
+      MuiTab: { 
+        ...Tab 
+      },
+      MuiTableContainer: { 
+        ...TableContainer 
+      },
+      MuiTable: { 
+        ...Table 
+      },
+      MuiTableHead: { 
+        ...TableHead 
+      },
+      MuiTableBody: { 
+        ...TableBody 
+      },
+      MuiTableRow: { 
+        ...TableRow 
+      },
+      MuiTableCell: { 
+        ...TableCell 
       },
     },
   });
