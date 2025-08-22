@@ -191,7 +191,7 @@ export default ChipsonIcon`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' gap={2} className="w-full">
               <Chip label="Basic" />
               <Chip label="Outlined" variant="outlined" />
@@ -225,7 +225,7 @@ export default ChipsonIcon`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' flexWrap='wrap' gap={2} className="w-full">
               <Chip label='Primary' color='primary' />
               <Chip label='Secondary' color='secondary' />
@@ -263,7 +263,7 @@ export default ChipsonIcon`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' flexWrap='wrap' gap={2} className="w-full">
               <Chip label='Primary' color='primary' variant='outlined' />
               <Chip label='Secondary' color='secondary' variant='outlined' />
@@ -301,7 +301,7 @@ export default ChipsonIcon`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='column' gap={4} className="w-full">
               <Stack direction='row' gap={1} flexWrap={'wrap'} className="w-full">
                 <Box className="w-full">

@@ -140,7 +140,7 @@ export default AvatarVariant`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Avatar src={`${imagePath(1)}`} alt='Victor Anderson' />
               <Avatar src={`${imagePath(8)}`} alt='Alice Cobb' />
@@ -175,7 +175,7 @@ export default AvatarVariant`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Avatar src='/images/avatars/1.png' alt='Victor Anderson' />
               <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
@@ -210,7 +210,7 @@ export default AvatarVariant`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Avatar>
                 <RiFolder2Line />
@@ -251,7 +251,7 @@ export default AvatarVariant`;
             </Stack>
           </Stack>
 
-          <Stack direction='row' gap={4} justifyContent='space-between'>
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
             <Stack direction='row' alignItems={'flex-start'} gap={2} className="w-full">
               <Avatar>
                 <RiFolder2Line />

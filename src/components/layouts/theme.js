@@ -1,16 +1,16 @@
 import { createTheme } from '@mui/material/styles';
 
-import { Accordion } from '../common/Accordion';
-import { AccordionSummary } from '../common/AccordionSummary';
-import { AccordionDetails } from '../common/AccordionDetails';
+import { Accordion, AccordionSummary, AccordionDetails } from '../common/Accordion';
 import { Avatar } from '../common/Avatar';
 import { Badge } from '../common/Badge';
 import { Button } from '../common/Button';
 import { Chip } from '../common/Chip';
-import { Input } from '../common/Input';
+import { MuiFormControl, MuiInputBase, MuiFilledInput, MuiInputLabel, MuiOutlinedInput, MuiInputAdornment, MuiFormHelperText } from '../common/Input';
 import { Paper } from '../common/Paper';
 import { Checkbox } from '../common/Checkbox';
 import { ButtonGroups } from '../common/ButtonGroups';
+import { FormControlLabel } from '../common/FormControlLabel';
+import { Radio } from '../common/Radio';
 import { Dialogs, DialogTitle, DialogContent, DialogContentText } from '../common/Dialogs';
 import { List, ListItem, ListItemText, ListItemIcon } from "../common/List";
 import { Menu, MenuItem } from "../common/Menu";
@@ -21,7 +21,43 @@ import { Ratings } from '../common/Ratings';
 const getTheme = () =>
   createTheme({
     typography: {
-      fontFamily: 'Inter',
+      fontFamily: [
+        'Inter',
+        'sans-serif',
+      ].join(','),
+      h1: {
+        fontSize: 56,
+      },
+      h2: {
+        fontSize: 40,
+      },
+      h3: {
+        fontSize: 36,
+      },
+      h4: {
+        fontSize: 32,
+      },
+      h5: {
+        fontSize: 24,
+      },
+      h6: {
+        fontSize: 20,
+      },
+      subtitle1: {
+        fontSize: 18,
+      },
+      subtitle2: {
+        fontSize: 14,
+      },
+      body1: {
+        fontSize: 16,
+      },
+      body2: {
+        fontSize: 14,
+      },
+      caption: {
+        fontSize: 12,
+      },
     },
     components: {
       MuiContainer: {
@@ -56,14 +92,38 @@ const getTheme = () =>
       MuiChip: {
         ...Chip,
       },
-      MuiTextField: {
-        ...Input,
+      MuiFormControl: {
+        ...MuiFormControl
+      },
+      MuiInputBase: {
+        ...MuiInputBase
+      },
+      MuiFilledInput: {
+        ...MuiFilledInput
+      },
+      MuiInputLabel: {
+        ...MuiInputLabel
+      },
+      MuiOutlinedInput: {
+        ...MuiOutlinedInput
+      },
+      MuiInputAdornment: {
+        ...MuiInputAdornment
+      },
+      MuiFormHelperText: {
+        ...MuiFormHelperText
       },
       MuiPaper: {
         ...Paper,
       },
       MuiButtonGroup: {
         ...ButtonGroups,
+      },
+      MuiFormControlLabel: {
+        ...FormControlLabel
+      },
+      MuiRadio: {
+        ...Radio,
       },
       MuiDialog: {
         ...Dialogs,
@@ -77,17 +137,17 @@ const getTheme = () =>
       MuiDialogContentText: {
         ...DialogContentText,
       },
-      MuiList: { 
+      MuiList: {
         ...List
       },
       MuiListItem: {
-        ...ListItem 
+        ...ListItem
       },
-      MuiListItemText: { 
-        ...ListItemText 
+      MuiListItemText: {
+        ...ListItemText
       },
-      MuiListItemIcon: { 
-        ...ListItemIcon 
+      MuiListItemIcon: {
+        ...ListItemIcon
       },
       MuiMenu: {
         ...Menu,
