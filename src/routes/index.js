@@ -19,6 +19,10 @@ import MenuPage from '../pages/Component/Menu';
 import PaginationPage from '../pages/Component/Pagination';
 import ProgressPage from '../pages/Component/Progress';
 import RatingsPage from '../pages/Component/Ratings';
+import SwiperPage from '../pages/Component/Swiper';
+import TabsPage from '../pages/Component/Tabs';
+import ToastsPage from '../pages/Component/Toasts';
+import TablePage from '../pages/Component/Table';
 
 function AppRouter() {
   return (
@@ -47,6 +51,10 @@ function AppRouter() {
           <Route path="/pagination" element={<PaginationPage />} />
           <Route path="/progress" element={<ProgressPage />} />
           <Route path="/ratings" element={<RatingsPage />} />
+          <Route path="/swiper" element={<SwiperPage />} />
+          <Route path="/tabs" element={<TabsPage />} />
+          <Route path="/toasts" element={<ToastsPage />} />
+          <Route path="/table" element={<TablePage />} />
         </Route>
       </Routes>
     </Router>

@@ -53,6 +53,7 @@
 ::-webkit-scrollbar
 {
     width: 4px;
+    height: 4px;
     border-radius: 10px;
     background-color: var(--menu-hover-color);
 }
@@ -67,7 +68,11 @@ body {
     color: initial !important;
     background-color: var(--body-bg-color) !important;
 }
-
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 .fw-400 {
     font-weight: 400 !important;
 }
@@ -196,5 +201,65 @@ body {
         font-size: 16px;
         line-height: 135%;
         color: var(--text-color);
+    }
+}
+.quick-link{
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.navigation-wrapper{
+    position: relative;
+    .nav-arrow{
+        color: var(--text-color);
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        svg{
+            font-size: 24px;
+        }
+        &.arrow-disabled{
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        &.left{
+            left: 0;
+            transform: translateY(-50%);
+        }
+        &.right{
+            right: 0;
+            transform: translateY(-50%);
+        }
+    }
+    .swiper-dots{
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 4px;
+        .dot{
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.3s ease-in;
+            opacity: 0.5;
+            cursor: pointer;
+            &.active{
+                width: 20px;
+                opacity: 1;
+            }
+        }
     }
 }
