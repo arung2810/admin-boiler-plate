@@ -14,6 +14,11 @@ import DialogsPage from '../pages/Component/Dialogs';
 import CheckboxPage from '../pages/FormElement/Checkbox';
 import RadioPage from '../pages/FormElement/Radio';
 import TextFieldPage from '../pages/FormElement/TextField';
+import ListPage from '../pages/Component/List';
+import MenuPage from '../pages/Component/Menu';
+import PaginationPage from '../pages/Component/Pagination';
+import ProgressPage from '../pages/Component/Progress';
+import RatingsPage from '../pages/Component/Ratings';
 
 function AppRouter() {
   return (
@@ -37,6 +42,11 @@ function AppRouter() {
           <Route path="/checkbox" element={<CheckboxPage />} />
           <Route path="/radio" element={<RadioPage />} />
           <Route path="/textfield" element={<TextFieldPage />} />
+          <Route path="/list" element={<ListPage />} />
+          <Route path="/menu" element={<MenuPage />} />
+          <Route path="/pagination" element={<PaginationPage />} />
+          <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/ratings" element={<RatingsPage />} />
         </Route>
       </Routes>
     </Router>

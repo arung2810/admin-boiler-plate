@@ -11,7 +11,12 @@ import { Checkbox } from '../common/Checkbox';
 import { ButtonGroups } from '../common/ButtonGroups';
 import { FormControlLabel } from '../common/FormControlLabel';
 import { Radio } from '../common/Radio';
-
+import { Dialogs, DialogTitle, DialogContent, DialogContentText } from '../common/Dialogs';
+import { List, ListItem, ListItemText, ListItemIcon } from "../common/List";
+import { Menu, MenuItem } from "../common/Menu";
+import { Pagination, PaginationItem } from "../common/Pagination";
+import { LinearProgress, CircularProgress } from "../common/Progress";
+import { Ratings } from '../common/Ratings';
 
 const getTheme = () =>
   createTheme({
@@ -119,6 +124,51 @@ const getTheme = () =>
       },
       MuiRadio: {
         ...Radio,
+      },
+      MuiDialog: {
+        ...Dialogs,
+      },
+      MuiDialogTitle: {
+        ...DialogTitle,
+      },
+      MuiDialogContent: {
+        ...DialogContent,
+      },
+      MuiDialogContentText: {
+        ...DialogContentText,
+      },
+      MuiList: {
+        ...List
+      },
+      MuiListItem: {
+        ...ListItem
+      },
+      MuiListItemText: {
+        ...ListItemText
+      },
+      MuiListItemIcon: {
+        ...ListItemIcon
+      },
+      MuiMenu: {
+        ...Menu,
+      },
+      MuiMenuItem: {
+        ...MenuItem,
+      },
+      MuiPagination: {
+        ...Pagination,
+      },
+      MuiPaginationItem: {
+        ...PaginationItem,
+      },
+      MuiLinearProgress: {
+        ...LinearProgress,
+      },
+      MuiCircularProgress: {
+        ...CircularProgress,
+      },
+      MuiRating: {
+        ...Ratings,
       },
     },
   });
