@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Box, FormControl, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, FormControl, FormLabel, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
 import { RiCodeSSlashFill, } from "react-icons/ri";
 import { TbCopy } from "react-icons/tb";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import CustomTextField from '../../../components/common/CustomTextField';
+import ReactSelect from '../../../components/common/ReactSelect';
 
 function SelectPage() {
   const [showCode, setShowCode] = useState({ variant: false, nativevariant: false, props: false, size: false, });
@@ -19,6 +20,21 @@ function SelectPage() {
       return updated;
     });
   };
+
+  const options = [
+    { value: 'ocean', label: 'Ocean' },
+    { value: 'blue', label: 'Blue' },
+    { value: 'purple', label: 'Purple' },
+    { value: 'red', label: 'Red' },
+    { value: 'orange', label: 'Orange' },
+    { value: 'yellow', label: 'Yellow' },
+    { value: 'green', label: 'Green' },
+    { value: 'forest', label: 'Forest' },
+    { value: 'slate', label: 'Slate' },
+    { value: 'silver', label: 'Silver' },
+  ]
+
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const codeStringVariant = `// If you want to change the style of the input, you can do so in the theme.js file
 // MUI Imports
@@ -338,6 +354,75 @@ const CustomSelectProps = () => {
 
 export default CustomSelectProps`;
 
+  const codeStringReactSelect = `// If you want to change the style of the reactselect, you can do so in the reactselect.js file
+// React-Select Imports
+import Select from "react-select";
+import Grid from '@mui/material/Grid'
+
+const colourOptions = [
+  { value: "red", label: "Red" },
+  { value: "green", label: "Green" },
+  { value: "blue", label: "Blue" },
+  { value: "orange", label: "Orange" },
+  { value: "purple", label: "Purple" },
+];
+
+const CustomSelectProps = () => {
+  return (
+    <Grid container spacing={3}>
+      <Grid size={{ xs: 12, md: 4 }}>
+        {/* Default Single Select */}
+        <Typography variant="body2" mb={0.5} className='page-title'>Default Select</Typography>
+        <Select
+          options={colourOptions}
+          styles={customStyles}
+          value={singleValue}
+          onChange={setSingleValue}
+          placeholder="Select a color"
+        />
+      </Grid>
+
+      <Grid size={{ xs: 12, md: 4 }}>
+        {/* Multi Select */}
+        <Typography variant="body2" mb={0.5} className='page-title'>Multi Select</Typography>
+        <Select
+          isMulti
+          options={colourOptions}
+          styles={customStyles}
+          value={multiValue}
+          onChange={setMultiValue}
+          placeholder="Select multiple colors"
+        />
+      </Grid>
+
+      <Grid size={{ xs: 12, md: 4 }}>
+        {/* Disabled Select */}
+        <Typography variant="body2" mb={0.5} className='page-title'>Disabled Select</Typography>
+        <Select
+          options={colourOptions}
+          styles={customStyles}
+          isDisabled
+          placeholder="Disabled"
+        />
+      </Grid>
+
+
+      <Grid size={{ xs: 12, md: 4 }}>
+        {/* Clearable Select */}
+        <Typography variant="body2" mb={0.5} className='page-title'>Clearable Select</Typography>
+        <Select
+          options={colourOptions}
+          styles={customStyles}
+          isClearable
+          placeholder="Clearable"
+        />
+      </Grid>
+    </Grid>
+  )
+}
+
+export default CustomSelectProps`;
+
   const handleCopy = async (codeKey) => {
     const codeMap = {
       variant: codeStringVariant,
@@ -382,24 +467,23 @@ export default CustomSelectProps`;
           <Stack direction='column' gap={4} justifyContent='space-between'>
             <Stack gap={2} className="w-full">
               <Grid container spacing={3}>
-                <Grid size={{ xs: 12, md: 4 }}>
-                  <FormControl fullWidth>
-                    <InputLabel id='demo-basic-select-outlined-label'>Age</InputLabel>
-                    <Select
-                      label='Age'
-                      id='demo-basic-select-outlined'
-                      labelId='demo-basic-select-outlined-label'
-                      value={ages[0]}
-                      onChange={(e) => handleChange(0, e.target.value)}
-                    >
-                      <MenuItem value='' disabled>
-                        <em>None</em>
-                      </MenuItem>
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                  </FormControl>
+                <Grid size={{ xs: 12, md: 4 }}>                  <FormControl fullWidth>
+                  <InputLabel id='demo-basic-select-outlined-label'>Age</InputLabel>
+                  <Select
+                    label='Age'
+                    id='demo-basic-select-outlined'
+                    labelId='demo-basic-select-outlined-label'
+                    value={ages[0]}
+                    onChange={(e) => handleChange(0, e.target.value)}
+                  >
+                    <MenuItem value='' disabled>
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
                 </Grid>
                 <Grid size={{ xs: 12, md: 4 }}>
                   <FormControl variant='filled' fullWidth>
@@ -772,6 +856,39 @@ export default CustomSelectProps`;
                   </CustomTextField>
                 </Grid>
               </Grid>
+            </Stack>
+
+            {showCode.size && (
+              <Box className="code-block w-full" sx={{ position: 'relative' }}>
+                <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
+                  {codeStringSize}
+                </SyntaxHighlighter>
+              </Box>
+            )}
+          </Stack>
+        </Paper>
+
+        {/* React Select Plugin */}
+        <Paper elevation={0}>
+          <Stack direction='row' alignItems='center' justifyContent='space-between' mb={2}>
+            <Typography variant="h6" className='page-title'>React Select Plugin</Typography>
+            <Stack direction="row" spacing={1}>
+              <Tooltip title="Show Code">
+                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, size: !prev.size }))}>
+                  <RiCodeSSlashFill />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Copy Code">
+                <IconButton className='icon-button' onClick={() => handleCopy("size")}>
+                  <TbCopy />
+                </IconButton>
+              </Tooltip>
+            </Stack>
+          </Stack>
+
+          <Stack direction='column' gap={4} justifyContent='space-between'>
+            <Stack gap={2} className="w-full">
+              <ReactSelect />
             </Stack>
 
             {showCode.size && (
