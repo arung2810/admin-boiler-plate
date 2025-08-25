@@ -305,7 +305,7 @@ export default ChipsonIcon`;
             <Stack direction='column' gap={4} className="w-full">
               <Stack direction='row' gap={1} flexWrap={'wrap'} className="w-full">
                 <Box className="w-full">
-                  <Typography className='font-medium'>Default</Typography>
+                  <Typography className='page-title font-medium'>Default</Typography>
                 </Box>
                 <Chip
                   label="Basic"
@@ -325,7 +325,7 @@ export default ChipsonIcon`;
 
               <Stack direction='row' gap={1} flexWrap={'wrap'} className="w-full">
                 <Box className="w-full">
-                  <Typography className='font-medium'>Custom Icon</Typography>
+                  <Typography className='page-title font-medium'>Custom Icon</Typography>
                 </Box>
                 <Chip
                   label="Default"
@@ -346,7 +346,7 @@ export default ChipsonIcon`;
 
               <Stack direction='row' gap={1} flexWrap={'wrap'} className="w-full">
                 <Box className="w-full">
-                  <Typography className='font-medium'>Avatar Variant</Typography>
+                  <Typography className='page-title font-medium'>Avatar Variant</Typography>
                 </Box>
                 <Chip
                   label="Default"

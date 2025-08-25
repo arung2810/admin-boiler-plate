@@ -1,14 +1,39 @@
 import React, { useState } from 'react';
 import { Box, Grid, IconButton, InputAdornment, Paper, Snackbar, Stack, TextField, Tooltip, Typography } from '@mui/material';
-import { RiCodeSSlashFill, RiUser4Line } from "react-icons/ri";
+import { RiCodeSSlashFill, RiUser4Line, RiEyeLine, RiEyeOffLine } from "react-icons/ri";
 import { TbCopy } from "react-icons/tb";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import CustomTextField from '../../../components/common/CustomTextField';
 
 function TextFieldPage() {
-  const [showCode, setShowCode] = useState({ custom: false, variant: false, formprops: false, icons: false, });
+  const [showCode, setShowCode] = useState(
+    {
+      custom: false,
+      variant: false,
+      formprops: false,
+      icons: false,
+      size: false,
+      adornment: false,
+      validation: false,
+    }
+  );
   const [copySuccess, setCopySuccess] = useState(false);
+
+  // States
+  const [values, setValues] = useState({
+    weight: '',
+    password: '',
+    showPassword: false
+  })
+
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value })
+  }
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword })
+  }
 
   const codeStringCustom = `// If you want to change the style of the input, you can do so in the theme.js file
 // MUI Imports
@@ -149,12 +174,136 @@ const TextFieldIcons = () => {
 }
 export default TextFieldIcons`;
 
+  const codeStringSize = `// If you want to change the style of the input, you can do so in the theme.js file
+// MUI Imports
+import Grid from '@mui/material/Grid'
+
+// Component Imports
+import CustomTextField from '../../../components/common/CustomTextField'
+
+const TextFieldSizes = () => {
+  return (
+    <Grid container spacing={3}>
+      <Grid size={{ xs: 12, md: 4 }}>
+        <CustomTextField label='Size' id='size-small' defaultValue='Small' fullWidth />
+      </Grid>
+      <Grid size={{ xs: 12, md: 4 }}>
+        <CustomTextField label='Size' id='size-medium' defaultValue='Medium' size='medium' fullWidth />
+      </Grid>
+    </Grid>
+  )
+}
+export default TextFieldSizes`;
+
+  const codeStringAdornment = `// If you want to change the style of the input, you can do so in the theme.js file
+// MUI Imports
+import Grid from '@mui/material/Grid'
+import IconButton from '@mui/material/IconButton'
+import InputAdornment from '@mui/material/InputAdornment'
+
+// Component Imports
+import CustomTextField from '../../../components/common/CustomTextField'
+
+const TextFieldAdornment = () => {
+  // States
+  const [values, setValues] = useState({
+    weight: '',
+    password: '',
+    showPassword: false
+  })
+
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value })
+  }
+
+  const handleClickShowPassword = () => {
+    setValues({ ...values, showPassword: !values.showPassword })
+  }
+
+  return (
+    <Box component='form' noValidate autoComplete='off'>
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, md: 4 }}>
+          <CustomTextField
+            id='icons-start-adornment'
+            label='With normal TextField'
+            slotProps={{
+              input: {
+                startAdornment: <InputAdornment position='start'>Kg</InputAdornment>
+              }
+            }}
+            fullWidth
+          />
+        </Grid>
+        <Grid size={{ xs: 12, md: 4 }}>
+          <CustomTextField
+            label='Password'
+            value={values.password}
+            id='icons-adornment-password'
+            onChange={handleChange('password')}
+            type={values.showPassword ? 'text' : 'password'}
+            slotProps={{
+              input: {
+                endAdornment: (
+                  <InputAdornment position='end'>
+                    <IconButton
+                      edge='end'
+                      onClick={handleClickShowPassword}
+                      onMouseDown={e => e.preventDefault()}
+                      aria-label='toggle password visibility'
+                    >
+                      {values.showPassword ? <RiEyeLine /> : <RiEyeOffLine />}
+                    </IconButton>
+                  </InputAdornment>
+                )
+              }
+            }}
+            fullWidth
+          />
+        </Grid>
+      </Grid>
+    </Box>
+  )
+}
+export default TextFieldAdornment`;
+
+  const codeStringValidation = `// If you want to change the style of the input, you can do so in the theme.js file
+// MUI Imports
+import Grid from '@mui/material/Grid'
+
+// Component Imports
+import CustomTextField from '../../../components/common/CustomTextField'
+
+const TextFieldValidation = () => {
+  return (
+    <Grid container spacing={3}>
+      <Grid size={{ xs: 12, md: 4 }}>
+        <CustomTextField error id='validation-error' label='Error' defaultValue='Hello World' fullWidth />
+      </Grid>
+      <Grid size={{ xs: 12, md: 4 }}>
+        <CustomTextField
+          error
+          label='Error'
+          defaultValue='Hello World'
+          helperText='Incorrect entry.'
+          id='validation-error-helper-text'
+          fullWidth
+        />
+      </Grid>
+    </Grid>
+  )
+}
+export default TextFieldValidation`;
+
   const handleCopy = async (codeKey) => {
     const codeMap = {
       custom: codeStringCustom,
       variant: codeStringVariant,
       formprops: codeStringFromProps,
       icons: codeStringIcons,
+      size: codeStringSize,
+      adornment: codeStringAdornment,
+      validation: codeStringValidation
     };
 
     try {
@@ -388,6 +537,167 @@ export default TextFieldIcons`;
               <Box className="code-block w-full" sx={{ position: 'relative' }}>
                 <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
                   {codeStringIcons}
+                </SyntaxHighlighter>
+              </Box>
+            )}
+          </Stack>
+        </Paper>
+
+        {/* Size */}
+        <Paper elevation={0}>
+          <Stack direction='row' alignItems='center' justifyContent='space-between' mb={2}>
+            <Typography variant="h6" className='page-title'>Sizes</Typography>
+            <Stack direction="row" spacing={1}>
+              <Tooltip title="Show Code">
+                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, size: !prev.size }))}>
+                  <RiCodeSSlashFill />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Copy Code">
+                <IconButton className='icon-button' onClick={() => handleCopy("size")}>
+                  <TbCopy />
+                </IconButton>
+              </Tooltip>
+            </Stack>
+          </Stack>
+
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
+            <Stack gap={2} className="w-full">
+              <Grid container spacing={3}>
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <CustomTextField label='Size' id='size-small' defaultValue='Small' fullWidth />
+                </Grid>
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <CustomTextField label='Size' id='size-medium' defaultValue='Medium' size='medium' fullWidth />
+                </Grid>
+              </Grid>
+            </Stack>
+
+            {showCode.size && (
+              <Box className="code-block w-full" sx={{ position: 'relative' }}>
+                <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
+                  {codeStringSize}
+                </SyntaxHighlighter>
+              </Box>
+            )}
+          </Stack>
+        </Paper>
+
+        {/* Adornment */}
+        <Paper elevation={0}>
+          <Stack direction='row' alignItems='center' justifyContent='space-between' mb={2}>
+            <Typography variant="h6" className='page-title'>Input Adornment</Typography>
+            <Stack direction="row" spacing={1}>
+              <Tooltip title="Show Code">
+                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, adornment: !prev.adornment }))}>
+                  <RiCodeSSlashFill />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Copy Code">
+                <IconButton className='icon-button' onClick={() => handleCopy("adornment")}>
+                  <TbCopy />
+                </IconButton>
+              </Tooltip>
+            </Stack>
+          </Stack>
+
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
+            <Stack gap={2} className="w-full">
+              <Box component='form' noValidate autoComplete='off'>
+                <Grid container spacing={3}>
+                  <Grid size={{ xs: 12, md: 4 }}>
+                    <CustomTextField
+                      id='icons-start-adornment'
+                      label='With normal TextField'
+                      slotProps={{
+                        input: {
+                          startAdornment: <InputAdornment position='start'>Kg</InputAdornment>
+                        }
+                      }}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 4 }}>
+                    <CustomTextField
+                      label='Password'
+                      value={values.password}
+                      id='icons-adornment-password'
+                      onChange={handleChange('password')}
+                      type={values.showPassword ? 'text' : 'password'}
+                      slotProps={{
+                        input: {
+                          endAdornment: (
+                            <InputAdornment position='end'>
+                              <IconButton
+                                edge='end'
+                                onClick={handleClickShowPassword}
+                                onMouseDown={e => e.preventDefault()}
+                                aria-label='toggle password visibility'
+                              >
+                                {values.showPassword ? <RiEyeLine /> : <RiEyeOffLine />}
+                              </IconButton>
+                            </InputAdornment>
+                          )
+                        }
+                      }}
+                      fullWidth
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+            </Stack>
+
+            {showCode.adornment && (
+              <Box className="code-block w-full" sx={{ position: 'relative' }}>
+                <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
+                  {codeStringAdornment}
+                </SyntaxHighlighter>
+              </Box>
+            )}
+          </Stack>
+        </Paper>
+
+        {/* Validation */}
+        <Paper elevation={0}>
+          <Stack direction='row' alignItems='center' justifyContent='space-between' mb={2}>
+            <Typography variant="h6" className='page-title'>Validation</Typography>
+            <Stack direction="row" spacing={1}>
+              <Tooltip title="Show Code">
+                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, validation: !prev.validation }))}>
+                  <RiCodeSSlashFill />
+                </IconButton>
+              </Tooltip>
+              <Tooltip title="Copy Code">
+                <IconButton className='icon-button' onClick={() => handleCopy("validation")}>
+                  <TbCopy />
+                </IconButton>
+              </Tooltip>
+            </Stack>
+          </Stack>
+
+          <Stack direction={{ xs: 'column', md: 'row' }} gap={4} justifyContent='space-between'>
+            <Stack gap={2} className="w-full">
+              <Grid container spacing={3}>
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <CustomTextField error id='validation-error' label='Error' defaultValue='Hello World' fullWidth />
+                </Grid>
+                <Grid size={{ xs: 12, md: 4 }}>
+                  <CustomTextField
+                    error
+                    label='Error'
+                    defaultValue='Hello World'
+                    helperText='Incorrect entry.'
+                    id='validation-error-helper-text'
+                    fullWidth
+                  />
+                </Grid>
+              </Grid>
+            </Stack>
+
+            {showCode.validation && (
+              <Box className="code-block w-full" sx={{ position: 'relative' }}>
+                <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
+                  {codeStringValidation}
                 </SyntaxHighlighter>
               </Box>
             )}

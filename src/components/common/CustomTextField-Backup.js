@@ -15,77 +15,55 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
     marginBottom: theme.spacing(1),
     color: 'var(--text-color)',
     '&:not(.Mui-error).MuiFormLabel-colorPrimary.Mui-focused': {
-      color: 'var(--primary-color)'
+      color: 'var(--textfield-color)',
     },
     '&.Mui-disabled': {
       color: 'var(--text-color)',
-      opacity: 0.38
+      opacity: 0.38,
     },
     '&.Mui-error': {
-      color: 'var(--red-color)'
-    }
+      color: 'var(--red-color)',
+    },
   },
+
   '& .MuiInputBase-root': {
     backgroundColor: 'transparent !important',
-    borderRadius: "4px",
+    borderRadius: '4px',
     border: `1px solid rgba(var(--input-border-rgb-color),0.22)`,
+
     '& .MuiInputBase-input': {
       borderRadius: '7px',
     },
-    '& .MuiInputBase-input::placeholder': {
-    },
-    '&.Mui-disabled .MuiInputBase-input::placeholder': {
-    },
+
     '&.Mui-disabled .MuiInputBase-input': {
       WebkitTextFillColor: 'var(--text-color)',
       color: 'var(--text-color)',
       opacity: 0.38,
-      backgroundColor: 'rgba(var(--input-border-rgb-color),0.2)'
+      backgroundColor: 'rgba(var(--input-border-rgb-color),0.2)',
     },
+
     '&:not(.Mui-focused):not(.Mui-disabled):not(.Mui-error):hover': {
-      borderColor: 'var(--input-border-rgb-color)'
+      borderColor: 'var(--input-border-rgb-color)',
     },
-    '&:before, &:after': {
-      display: 'none'
-    },
-    '&.MuiInputBase-sizeSmall': {
-      borderRadius: '6px'
-    },
-    '&.Mui-error': {
-      borderColor: 'var(--red-color)'
-    },
+
+    '&:before, &:after': { display: 'none' },
+
+    '&.MuiInputBase-sizeSmall': { borderRadius: '6px' },
+
+    '&.Mui-error': { borderColor: 'var(--red-color)' },
+
     '&.Mui-focused': {
       borderWidth: 2,
+      borderColor: 'var(--textfield-color)',
       '& :not(textarea).MuiFilledInput-input': {
-        padding: '7px 15px'
+        padding: '7px 15px',
       },
-      '&:not(.Mui-error).MuiInputBase-colorPrimary': {
-        borderColor: 'var(--primary-color)',
-      },
-      '&.MuiInputBase-colorSecondary': {
-        borderColor: 'var(--secondary-color)'
-      },
-      '&.MuiInputBase-colorInfo': {
-        borderColor: 'var(--blue-color)'
-      },
-      '&.MuiInputBase-colorSuccess': {
-        borderColor: 'var(--green-color)'
-      },
-      '&.MuiInputBase-colorWarning': {
-        borderColor: 'var(--yellow-color)'
-      },
-      '&.MuiInputBase-colorError': {
-        borderColor: 'var(--red-color)'
-      },
-      '&.Mui-error': {
-        borderColor: 'var(--red-color)'
-      }
+      '&.Mui-error': { borderColor: 'var(--red-color)' },
     },
+
     '&.Mui-disabled': {
       backgroundColor: 'rgba(var(--input-border-rgb-color),0.2)',
-      color: 'var(--text-color)',
-      opacity: 0.38
-    }
+    },
   },
 
   // Adornments
@@ -213,23 +191,35 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
   '& .MuiSelect-select:focus, & .MuiNativeSelect-select:focus': {
     backgroundColor: 'transparent'
   },
-}))
+}));
+
+TextFieldStyled.defaultProps = {
+  variant: 'filled',
+};
+
+TextFieldStyled.variants = [
+  { props: { color: 'primary' }, style: { '--textfield-color': 'var(--primary-color)' } },
+  { props: { color: 'secondary' }, style: { '--textfield-color': 'var(--secondary-color)' } },
+  { props: { color: 'error' }, style: { '--textfield-color': 'var(--red-color)' } },
+  { props: { color: 'warning' }, style: { '--textfield-color': 'var(--yellow-color)' } },
+  { props: { color: 'info' }, style: { '--textfield-color': 'var(--blue-color)' } },
+  { props: { color: 'success' }, style: { '--textfield-color': 'var(--green-color)' } },
+];
 
 const CustomTextField = forwardRef((props, ref) => {
-  const { size = 'small', slotProps, ...rest } = props
+  const { size = 'small', slotProps, ...rest } = props;
 
   return (
     <TextFieldStyled
       size={size}
       inputRef={ref}
       {...rest}
-      variant='filled'
       slotProps={{
         ...slotProps,
-        inputLabel: { ...slotProps?.inputLabel, shrink: true }
+        inputLabel: { ...slotProps?.inputLabel, shrink: true },
       }}
     />
-  )
-})
+  );
+});
 
-export default CustomTextField
+export default CustomTextField;

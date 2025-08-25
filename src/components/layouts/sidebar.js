@@ -45,7 +45,11 @@ const menuItems = [
     children: [
       { label: "Text Field", path: "/textfield" },
       { label: "Checkbox", path: "/checkbox" },
-      { label: "Radio", path: "/radio" }
+      { label: "Radio", path: "/radio" },
+      { label: "Textarea", path: "/textarea" },
+      { label: "Select", path: "/select" },
+      { label: "Switch", path: "/switch" },
+      { label: "Autocomplete", path: "/autocomplete" },
     ]
   }
 ];

@@ -17,6 +17,9 @@ import { Menu, MenuItem } from "../common/Menu";
 import { Pagination, PaginationItem } from "../common/Pagination";
 import { LinearProgress, CircularProgress } from "../common/Progress";
 import { Ratings } from '../common/Ratings';
+import { Select, NativeSelect } from '../common/Select';
+import { Switch } from '../common/Switch';
+import { Autocomplete } from '../common/Autocomplete';
 import { Tab, Tabs } from '../common/Tabs';
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '../common/Table';
 
@@ -171,6 +174,18 @@ const getTheme = () =>
       },
       MuiRating: {
         ...Ratings,
+      },
+      MuiSelect: {
+        ...Select
+      },
+      MuiNativeSelect: {
+        ...NativeSelect
+      },
+      MuiSwitch: {
+        ...Switch
+      },
+      MuiAutocomplete: {
+        ...Autocomplete
       },
       MuiTabs: { 
         ...Tabs

@@ -25,71 +25,39 @@ export const Radio = {
       ...(ownerState.size === 'small'
         ? {
           padding: theme.spacing(0.75),
-          '& svg': {
-            fontSize: '1.25rem'
-          }
+          '& svg': { fontSize: '1.25rem' },
         }
         : {
           padding: theme.spacing(1),
-          '& svg': {
-            fontSize: '1.5rem'
-          }
+          '& svg': { fontSize: '1.5rem' },
         }),
+
+      // unchecked + not disabled
       '&:not(.Mui-checked):not(.Mui-disabled) svg, &:not(.Mui-checked):not(.Mui-disabled) i': {
-        color: 'var(--text-color)'
+        color: 'var(--text-color)',
       },
-      '&.Mui-checked:not(.Mui-disabled) svg': {
-      },
-      '&.Mui-checked': {
-        '&.MuiRadio-colorPrimary': {
-          color: 'var(--primary-color)',
-        },
-        '&.MuiRadio-colorSecondary': {
-          color: 'var(--secondary-color)',
-        },
-        '&.MuiRadio-colorError': {
-          color: 'var(--red-color)',
-        },
-        '&.MuiRadio-colorWarning': {
-          color: 'var(--yellow-color)',
-        },
-        '&.MuiRadio-colorInfo': {
-          color: 'var(--blue-color)',
-        },
-        '&.MuiRadio-colorSuccess': {
-          color: 'var(--green-color)',
-        },
-      },
+
+      // checked states use the variable
+      '&.Mui-checked': { color: 'var(--radio-color)' },
+
+      // disabled state
       '&.Mui-disabled': {
         opacity: 0.45,
-        '&:not(.Mui-checked)': {
-          color: 'var(--text-color)',
-        },
-        '&.Mui-checked': {
-          '&.MuiRadio-colorPrimary': {
-            color: 'var(--primary-color)',
-          },
-          '&.MuiRadio-colorSecondary': {
-            color: 'var(--secondary-color)',
-          },
-          '&.MuiRadio-colorError': {
-            color: 'var(--red-color)',
-          },
-          '&.MuiRadio-colorWarning': {
-            color: 'var(--yellow-color)',
-          },
-          '&.MuiRadio-colorInfo': {
-            color: 'var(--blue-color)',
-          },
-          '&.MuiRadio-colorSuccess': {
-            color: 'var(--green-color)',
-          },
-        },
-      }
-    })
+        '&:not(.Mui-checked)': { color: 'var(--text-color)' },
+        '&.Mui-checked': { color: 'var(--radio-color)' },
+      },
+    }),
   },
   defaultProps: {
     icon: <UncheckedIcon />,
-    checkedIcon: <IconChecked />
+    checkedIcon: <IconChecked />,
   },
-}
+  variants: [
+    { props: { color: 'primary' }, style: { '--radio-color': 'var(--primary-color)' } },
+    { props: { color: 'secondary' }, style: { '--radio-color': 'var(--secondary-color)' } },
+    { props: { color: 'error' }, style: { '--radio-color': 'var(--red-color)' } },
+    { props: { color: 'warning' }, style: { '--radio-color': 'var(--yellow-color)' } },
+    { props: { color: 'info' }, style: { '--radio-color': 'var(--blue-color)' } },
+    { props: { color: 'success' }, style: { '--radio-color': 'var(--green-color)' } },
+  ],
+};

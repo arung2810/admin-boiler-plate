@@ -3,24 +3,23 @@ export const Badge = {
     root: {
       '& .MuiBadge-badge': {
         fontSize: '0.65rem',
-        // height: '24px',
-        // minWidth: '24px',
-        // right: -8,
-        // top: 0,
-        // padding: '0 4px',
+        backgroundColor: 'var(--badge-color)',
+        color: '#fff', // optional: ensures text is readable
       },
     },
     badge: {
-      // backgroundColor: 'purple',
-      // color: 'white',
+      // you can still add specific overrides here if needed
     },
     dot: {
-      // backgroundColor: 'green',
-    },
-    colorSuccess: {
-      '& .MuiBadge-badge': {
-        // backgroundColor: 'darkgreen',
-      },
+      backgroundColor: 'var(--badge-color)',
     },
   },
-}
+  variants: [
+    { props: { color: 'primary' }, style: { '--badge-color': 'var(--primary-color)' } },
+    { props: { color: 'secondary' }, style: { '--badge-color': 'var(--secondary-color)' } },
+    { props: { color: 'error' }, style: { '--badge-color': 'var(--red-color)' } },
+    { props: { color: 'warning' }, style: { '--badge-color': 'var(--yellow-color)' } },
+    { props: { color: 'info' }, style: { '--badge-color': 'var(--blue-color)' } },
+    { props: { color: 'success' }, style: { '--badge-color': 'var(--green-color)' } },
+  ],
+};
