@@ -20,6 +20,8 @@ import { Ratings } from '../common/Ratings';
 import { Select, NativeSelect } from '../common/Select';
 import { Switch } from '../common/Switch';
 import { Autocomplete } from '../common/Autocomplete';
+import { Tab, Tabs } from '../common/Tabs';
+import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '../common/Table';
 
 const getTheme = () =>
   createTheme({
@@ -184,6 +186,30 @@ const getTheme = () =>
       },
       MuiAutocomplete: {
         ...Autocomplete
+      },
+      MuiTabs: { 
+        ...Tabs
+      },
+      MuiTab: { 
+        ...Tab 
+      },
+      MuiTableContainer: { 
+        ...TableContainer 
+      },
+      MuiTable: { 
+        ...Table 
+      },
+      MuiTableHead: { 
+        ...TableHead 
+      },
+      MuiTableBody: { 
+        ...TableBody 
+      },
+      MuiTableRow: { 
+        ...TableRow 
+      },
+      MuiTableCell: { 
+        ...TableCell 
       },
     },
   });

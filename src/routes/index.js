@@ -23,6 +23,10 @@ import TextAreaPage from '../pages/FormElement/Textarea';
 import SelectPage from '../pages/FormElement/Select';
 import SwitchPage from '../pages/FormElement/Switch';
 import AutocompletePage from '../pages/FormElement/Autocomplele';
+import SwiperPage from '../pages/Component/Swiper';
+import TabsPage from '../pages/Component/Tabs';
+import ToastsPage from '../pages/Component/Toasts';
+import TablePage from '../pages/Component/Table';
 
 function AppRouter() {
   return (
@@ -55,6 +59,10 @@ function AppRouter() {
           <Route path="/select" element={<SelectPage />} />
           <Route path="/switch" element={<SwitchPage />} />
           <Route path="/autocomplete" element={<AutocompletePage />} />
+          <Route path="/swiper" element={<SwiperPage />} />
+          <Route path="/tabs" element={<TabsPage />} />
+          <Route path="/toasts" element={<ToastsPage />} />
+          <Route path="/table" element={<TablePage />} />
         </Route>
       </Routes>
     </Router>

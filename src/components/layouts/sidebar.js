@@ -33,6 +33,10 @@ const menuItems = [
       { label: "Pagination", path: "/pagination" },
       { label: "Progress", path: "/progress" },
       { label: "Ratings", path: "/ratings" },
+      { label: "Swiper", path: "/swiper" },
+      { label: "Tabs", path: "/tabs" },
+      { label: "Toasts", path: "/toasts" },
+      { label: "Table", path: "/table" },
     ],
   },
   {
@@ -165,6 +169,17 @@ const Sidebar = ({ isOpen, onCloseSidebar }) => {
     );
     setOpenMenuIndex(activeIndex >= 0 ? activeIndex : null);
   }, [location.pathname, isActive]);
+
+  useEffect(() => {
+    if (isMobile && isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen, isMobile]);
 
   const sidebarContent = (
     <SidebarContent

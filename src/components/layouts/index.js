@@ -25,7 +25,7 @@ const AppLayout = () => {
     };
 
     return (
-        <ThemeProvider theme={Theme}>
+        <ThemeProvider theme={Theme()}>
             <Box className="main-content">
                 <Header onToggleSidebar={() => handleToggleSidebar(true)} />
                 <Sidebar
