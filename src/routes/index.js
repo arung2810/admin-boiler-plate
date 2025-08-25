@@ -27,6 +27,10 @@ import SwiperPage from '../pages/Component/Swiper';
 import TabsPage from '../pages/Component/Tabs';
 import ToastsPage from '../pages/Component/Toasts';
 import TablePage from '../pages/Component/Table';
+import DividerPage from '../pages/Component/Divider';
+import LinkPage from '../pages/Component/Link';
+import DrawerPage from '../pages/Component/Drawer';
+import PopoverPage from '../pages/Component/Popover';
 
 function AppRouter() {
   return (
@@ -63,6 +67,10 @@ function AppRouter() {
           <Route path="/tabs" element={<TabsPage />} />
           <Route path="/toasts" element={<ToastsPage />} />
           <Route path="/table" element={<TablePage />} />
+          <Route path="/divider" element={<DividerPage />} />
+          <Route path="/link" element={<LinkPage />} />
+          <Route path="/drawer" element={<DrawerPage />} />
+          <Route path="/popover" element={<PopoverPage />} />
         </Route>
       </Routes>
     </Router>

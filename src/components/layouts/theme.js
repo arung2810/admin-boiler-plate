@@ -22,6 +22,10 @@ import { Switch } from '../common/Switch';
 import { Autocomplete } from '../common/Autocomplete';
 import { Tab, Tabs } from '../common/Tabs';
 import { TableContainer, Table, TableHead, TableBody, TableRow, TableCell } from '../common/Table';
+import { Divider } from '../common/Divider';
+import { Link } from '../common/Link';
+import { Drawer } from '../common/Drawer';
+import { Popover } from '../common/Popover';
 
 const getTheme = () =>
   createTheme({
@@ -210,6 +214,18 @@ const getTheme = () =>
       },
       MuiTableCell: { 
         ...TableCell 
+      },
+      MuiDivider: {
+        ...Divider,
+      },
+      MuiLink: {
+        ...Link,
+      },
+      MuiDrawer: {
+        ...Drawer,
+      },
+      MuiPopover: {
+        ...Popover
       },
     },
   });
