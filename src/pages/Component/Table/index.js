@@ -72,7 +72,7 @@ function CollapsibleRow({ row }) {
     <>
       <TableRow>
         <TableCell>
-          <IconButton color='primary' className='page-title' size="small" onClick={() => setOpen(!open)}>
+          <IconButton color='primary' className='icon-button' size="small" onClick={() => setOpen(!open)}>
             {open ? <FiChevronUp /> : <FiChevronDown />}
           </IconButton>
         </TableCell>
@@ -85,25 +85,27 @@ function CollapsibleRow({ row }) {
       <TableRow>
         <TableCell colSpan={6} style={{ paddingBottom: 0, paddingTop: 0 }}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box margin={1}>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {row.history.map((historyRow, idx) => (
-                    <TableRow key={idx}>
-                      <TableCell>{historyRow.date}</TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
+            <Box my={2}>
+              <TableContainer>
+                <Table size="small" aria-label="purchases">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Date</TableCell>
+                      <TableCell>Customer</TableCell>
+                      <TableCell align="right">Amount</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHead>
+                  <TableBody>
+                    {row.history.map((historyRow, idx) => (
+                      <TableRow key={idx}>
+                        <TableCell>{historyRow.date}</TableCell>
+                        <TableCell>{historyRow.customerId}</TableCell>
+                        <TableCell align="right">{historyRow.amount}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </Box>
           </Collapse>
         </TableCell>

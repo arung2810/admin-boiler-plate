@@ -37,6 +37,10 @@ const menuItems = [
       { label: "Tabs", path: "/tabs" },
       { label: "Toasts", path: "/toasts" },
       { label: "Table", path: "/table" },
+      { label: "Divider", path: "/divider" },
+      { label: "Link", path: "/link" },
+      { label: "Drawer", path: "/drawer" },
+      { label: "Popover", path: "/popover" },
     ],
   },
   {
