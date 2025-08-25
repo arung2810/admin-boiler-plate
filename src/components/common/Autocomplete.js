@@ -94,10 +94,10 @@ export const Autocomplete = ({
         padding: theme.spacing(1, 1.5),
         borderRadius: 8,
         '&[aria-selected="true"]': {
-          backgroundColor: 'var(--primary-color)',
+          backgroundColor: 'rgba(var(--primary-rgb-color),0.7)',
           color: 'var(--white-color)',
           '&.Mui-focused, &.Mui-focusVisible': {
-            backgroundColor: 'var(--primary-color)',
+            backgroundColor: 'rgba(var(--primary-rgb-color),0.7)',
             color: 'var(--white-color)',
           }
         }
