@@ -26,6 +26,8 @@ import { Divider } from '../common/Divider';
 import { Link } from '../common/Link';
 import { Drawer } from '../common/Drawer';
 import { Popover } from '../common/Popover';
+import { Breadcrumbs } from '../common/Breadcrumbs';
+import { Popper } from '../common/Popper';
 
 const getTheme = () =>
   createTheme({
@@ -226,6 +228,12 @@ const getTheme = () =>
       },
       MuiPopover: {
         ...Popover
+      },
+      MuiBreadcrumbs: {
+        ...Breadcrumbs
+      },
+      MuiPopper: {
+        ...Popper
       },
     },
   });
