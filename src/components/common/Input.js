@@ -1,4 +1,4 @@
-export const MuiFormControl = {
+export const FormControl = {
   styleOverrides: {
     root: {
       '&:has(.MuiRadio-root) .MuiFormHelperText-root, &:has(.MuiCheckbox-root) .MuiFormHelperText-root, &:has(.MuiSwitch-root) .MuiFormHelperText-root':
@@ -12,7 +12,7 @@ export const MuiFormControl = {
   }
 }
 
-export const MuiInputBase = {
+export const InputBase = {
   styleOverrides: {
     root: {
       lineHeight: 1.6,
@@ -40,7 +40,7 @@ export const MuiInputBase = {
   }
 }
 
-export const MuiFilledInput = {
+export const FilledInput = {
   styleOverrides: {
     root: {
       borderStartStartRadius: 4,
@@ -68,7 +68,7 @@ export const MuiFilledInput = {
   }
 }
 
-export const MuiInputLabel = {
+export const InputLabel = {
   styleOverrides: {
     shrink: ({ ownerState }) => ({
       ...(ownerState.variant === 'outlined' && {
@@ -91,7 +91,7 @@ export const MuiInputLabel = {
   }
 }
 
-export const MuiOutlinedInput = {
+export const OutlinedInput = {
   styleOverrides: {
     root: {
       color: 'var(--text-color)',
@@ -133,7 +133,7 @@ export const MuiOutlinedInput = {
   }
 }
 
-export const MuiInputAdornment = {
+export const InputAdornment = {
   styleOverrides: {
     root: {
       color: 'var(--text-color)',
@@ -147,7 +147,7 @@ export const MuiInputAdornment = {
   }
 }
 
-export const MuiFormHelperText = {
+export const FormHelperText = {
   styleOverrides: {
     root: {
       lineHeight: 1,

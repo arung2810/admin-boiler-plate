@@ -31,6 +31,7 @@ import DividerPage from '../pages/Component/Divider';
 import LinkPage from '../pages/Component/Link';
 import DrawerPage from '../pages/Component/Drawer';
 import PopoverPage from '../pages/Component/Popover';
+import DatepickerPage from '../pages/FormElement/Datepicker';
 
 function AppRouter() {
   return (
@@ -71,6 +72,7 @@ function AppRouter() {
           <Route path="/link" element={<LinkPage />} />
           <Route path="/drawer" element={<DrawerPage />} />
           <Route path="/popover" element={<PopoverPage />} />
+          <Route path="/datepicker" element={<DatepickerPage />} />
         </Route>
       </Routes>
     </Router>

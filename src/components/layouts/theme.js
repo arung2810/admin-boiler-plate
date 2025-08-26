@@ -5,7 +5,7 @@ import { Avatar } from '../common/Avatar';
 import { Badge } from '../common/Badge';
 import { Button } from '../common/Button';
 import { Chip } from '../common/Chip';
-import { MuiFormControl, MuiInputBase, MuiFilledInput, MuiInputLabel, MuiOutlinedInput, MuiInputAdornment, MuiFormHelperText } from '../common/Input';
+import { FormControl, InputBase, FilledInput, InputLabel, OutlinedInput, InputAdornment, FormHelperText } from '../common/Input';
 import { Paper } from '../common/Paper';
 import { Checkbox } from '../common/Checkbox';
 import { ButtonGroups } from '../common/ButtonGroups';
@@ -102,25 +102,25 @@ const getTheme = () =>
         ...Chip,
       },
       MuiFormControl: {
-        ...MuiFormControl
+        ...FormControl
       },
       MuiInputBase: {
-        ...MuiInputBase
+        ...InputBase
       },
       MuiFilledInput: {
-        ...MuiFilledInput
+        ...FilledInput
       },
       MuiInputLabel: {
-        ...MuiInputLabel
+        ...InputLabel
       },
       MuiOutlinedInput: {
-        ...MuiOutlinedInput
+        ...OutlinedInput
       },
       MuiInputAdornment: {
-        ...MuiInputAdornment
+        ...InputAdornment
       },
       MuiFormHelperText: {
-        ...MuiFormHelperText
+        ...FormHelperText
       },
       MuiPaper: {
         ...Paper,
@@ -191,29 +191,29 @@ const getTheme = () =>
       MuiAutocomplete: {
         ...Autocomplete
       },
-      MuiTabs: { 
+      MuiTabs: {
         ...Tabs
       },
-      MuiTab: { 
-        ...Tab 
+      MuiTab: {
+        ...Tab
       },
-      MuiTableContainer: { 
-        ...TableContainer 
+      MuiTableContainer: {
+        ...TableContainer
       },
-      MuiTable: { 
-        ...Table 
+      MuiTable: {
+        ...Table
       },
-      MuiTableHead: { 
-        ...TableHead 
+      MuiTableHead: {
+        ...TableHead
       },
-      MuiTableBody: { 
-        ...TableBody 
+      MuiTableBody: {
+        ...TableBody
       },
-      MuiTableRow: { 
-        ...TableRow 
+      MuiTableRow: {
+        ...TableRow
       },
-      MuiTableCell: { 
-        ...TableCell 
+      MuiTableCell: {
+        ...TableCell
       },
       MuiDivider: {
         ...Divider,

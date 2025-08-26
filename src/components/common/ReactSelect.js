@@ -131,7 +131,7 @@ const customStyles = {
 export default function CustomSelectDemo() {
   const [singleValue, setSingleValue] = useState(null);
   const [multiValue, setMultiValue] = useState([]);
-  const [styledValue, setStyledValue] = useState(null);
+  // const [styledValue, setStyledValue] = useState(null);
 
   return (
     <Grid container spacing={3}>

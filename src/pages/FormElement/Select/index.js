@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormControl, FormLabel, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, FormControl, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
 import { RiCodeSSlashFill, } from "react-icons/ri";
 import { TbCopy } from "react-icons/tb";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -8,7 +8,7 @@ import CustomTextField from '../../../components/common/CustomTextField';
 import ReactSelect from '../../../components/common/ReactSelect';
 
 function SelectPage() {
-  const [showCode, setShowCode] = useState({ variant: false, nativevariant: false, props: false, size: false, });
+  const [showCode, setShowCode] = useState({ variant: false, nativevariant: false, props: false, size: false, customselect: false, });
   const [copySuccess, setCopySuccess] = useState(false);
 
   const [ages, setAges] = useState(Array(15).fill(""));
@@ -20,21 +20,6 @@ function SelectPage() {
       return updated;
     });
   };
-
-  const options = [
-    { value: 'ocean', label: 'Ocean' },
-    { value: 'blue', label: 'Blue' },
-    { value: 'purple', label: 'Purple' },
-    { value: 'red', label: 'Red' },
-    { value: 'orange', label: 'Orange' },
-    { value: 'yellow', label: 'Yellow' },
-    { value: 'green', label: 'Green' },
-    { value: 'forest', label: 'Forest' },
-    { value: 'slate', label: 'Slate' },
-    { value: 'silver', label: 'Silver' },
-  ]
-
-  const [selectedOption, setSelectedOption] = useState(null);
 
   const codeStringVariant = `// If you want to change the style of the input, you can do so in the theme.js file
 // MUI Imports
@@ -316,7 +301,7 @@ import MenuItem from '@mui/material/MenuItem'
 import Grid from '@mui/material/Grid'
 import CustomTextField from '../../../components/common/CustomTextField'
 
-const CustomSelectProps = () => {
+const CustomSelectSize = () => {
   return (
     <Grid container spacing={3}>
       <Grid size={{ xs: 12, md: 4 }}>
@@ -352,12 +337,12 @@ const CustomSelectProps = () => {
   )
 }
 
-export default CustomSelectProps`;
+export default CustomSelectSize`;
 
   const codeStringReactSelect = `// If you want to change the style of the reactselect, you can do so in the reactselect.js file
 // React-Select Imports
+import { Grid, Typography } from "@mui/material";
 import Select from "react-select";
-import Grid from '@mui/material/Grid'
 
 const colourOptions = [
   { value: "red", label: "Red" },
@@ -367,7 +352,11 @@ const colourOptions = [
   { value: "purple", label: "Purple" },
 ];
 
-const CustomSelectProps = () => {
+const ReactSelect = () => {
+  // State
+  const [singleValue, setSingleValue] = useState(null);
+  const [multiValue, setMultiValue] = useState([]);
+
   return (
     <Grid container spacing={3}>
       <Grid size={{ xs: 12, md: 4 }}>
@@ -421,7 +410,7 @@ const CustomSelectProps = () => {
   )
 }
 
-export default CustomSelectProps`;
+export default ReactSelect`;
 
   const handleCopy = async (codeKey) => {
     const codeMap = {
@@ -429,6 +418,7 @@ export default CustomSelectProps`;
       nativevariant: codeStringNativeVariant,
       props: codeStringProps,
       size: codeStringSize,
+      customselect: codeStringReactSelect
     };
 
     try {
@@ -874,12 +864,12 @@ export default CustomSelectProps`;
             <Typography variant="h6" className='page-title'>React Select Plugin</Typography>
             <Stack direction="row" spacing={1}>
               <Tooltip title="Show Code">
-                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, size: !prev.size }))}>
+                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, customselect: !prev.customselect }))}>
                   <RiCodeSSlashFill />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Copy Code">
-                <IconButton className='icon-button' onClick={() => handleCopy("size")}>
+                <IconButton className='icon-button' onClick={() => handleCopy("customselect")}>
                   <TbCopy />
                 </IconButton>
               </Tooltip>
@@ -891,10 +881,10 @@ export default CustomSelectProps`;
               <ReactSelect />
             </Stack>
 
-            {showCode.size && (
+            {showCode.customselect && (
               <Box className="code-block w-full" sx={{ position: 'relative' }}>
                 <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
-                  {codeStringSize}
+                  {codeStringReactSelect}
                 </SyntaxHighlighter>
               </Box>
             )}
