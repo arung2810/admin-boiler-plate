@@ -177,6 +177,49 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
     }
   },
 
+  // For Autocomplete
+  '& :not(.MuiInputBase-sizeSmall).MuiAutocomplete-inputRoot': {
+    paddingBlock: '5.55px',
+    '& .MuiAutocomplete-input': {
+      paddingInline: '8px !important',
+      paddingBlock: '5.25px !important'
+    },
+    '&.Mui-focused .MuiAutocomplete-input': {
+      paddingInlineStart: '7px !important'
+    },
+    '&.Mui-focused': {
+      paddingBlock: '4.55px !important'
+    },
+    '& .MuiAutocomplete-endAdornment': {
+      top: 'calc(50% - 12px)'
+    }
+  },
+  '& .MuiAutocomplete-inputRoot.MuiInputBase-sizeSmall': {
+    paddingBlock: '4.75px !important',
+    paddingInlineStart: '10px',
+    '&.Mui-focused': {
+      paddingBlock: '3.75px !important',
+      paddingInlineStart: '9px',
+      '.MuiAutocomplete-input': {
+        paddingBlock: '2.5px',
+        paddingInline: '3px !important'
+      }
+    },
+    '& .MuiAutocomplete-input': {
+      paddingInline: '3px !important'
+    }
+  },
+  '& .MuiAutocomplete-inputRoot': {
+    display: 'flex',
+    gap: '0.25rem',
+    '& .MuiAutocomplete-tag': {
+      margin: 0
+    }
+  },
+  '& .MuiAutocomplete-inputRoot.Mui-focused .MuiAutocomplete-endAdornment': {
+    right: '.9375rem'
+  },
+
   // For Textarea
   '& .MuiInputBase-multiline': {
     '&.MuiInputBase-sizeSmall': {

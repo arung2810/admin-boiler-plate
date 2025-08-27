@@ -57,6 +57,7 @@ const menuItems = [
       { label: "Select", path: "/select" },
       { label: "Switch", path: "/switch" },
       { label: "Autocomplete", path: "/autocomplete" },
+      { label: "Date & Time Pickers", path: "/datepicker" },
     ]
   }
 ];

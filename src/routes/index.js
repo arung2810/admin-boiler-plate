@@ -31,6 +31,7 @@ import DividerPage from '../pages/Component/Divider';
 import LinkPage from '../pages/Component/Link';
 import DrawerPage from '../pages/Component/Drawer';
 import PopoverPage from '../pages/Component/Popover';
+import DatepickerPage from '../pages/FormElement/Datepicker';
 import BreadcrumbPage from '../pages/Component/Breadcrumbs';
 import PopperPage from '../pages/Component/Popper';
 import SkeletonPage from '../pages/Component/Skeleton';
@@ -74,6 +75,7 @@ function AppRouter() {
           <Route path="/link" element={<LinkPage />} />
           <Route path="/drawer" element={<DrawerPage />} />
           <Route path="/popover" element={<PopoverPage />} />
+          <Route path="/datepicker" element={<DatepickerPage />} />
           <Route path="/breadcrumbs" element={<BreadcrumbPage />} />
           <Route path="/popper" element={<PopperPage />} />
           <Route path="/skeleton" element={<SkeletonPage />} />
