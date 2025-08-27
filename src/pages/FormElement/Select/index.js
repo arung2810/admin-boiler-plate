@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, FormControl, FormLabel, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
+import { Box, FormControl, Grid, IconButton, InputLabel, MenuItem, Paper, Select, Snackbar, Stack, Tooltip, Typography } from '@mui/material';
 import { RiCodeSSlashFill, } from "react-icons/ri";
 import { TbCopy } from "react-icons/tb";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -20,21 +20,6 @@ function SelectPage() {
       return updated;
     });
   };
-
-  const options = [
-    { value: 'ocean', label: 'Ocean' },
-    { value: 'blue', label: 'Blue' },
-    { value: 'purple', label: 'Purple' },
-    { value: 'red', label: 'Red' },
-    { value: 'orange', label: 'Orange' },
-    { value: 'yellow', label: 'Yellow' },
-    { value: 'green', label: 'Green' },
-    { value: 'forest', label: 'Forest' },
-    { value: 'slate', label: 'Slate' },
-    { value: 'silver', label: 'Silver' },
-  ]
-
-  const [selectedOption, setSelectedOption] = useState(null);
 
   const codeStringVariant = `// If you want to change the style of the input, you can do so in the theme.js file
 // MUI Imports
