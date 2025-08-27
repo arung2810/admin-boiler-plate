@@ -16,7 +16,7 @@ export const Autocomplete = ({
     inputRoot: {
       paddingRight: '2rem',
       '&.Mui-focused': {
-        borderColor: 'var(--mui-palette-primary-main)'
+        borderColor: 'var(--primary-color)'
       }
     },
     input: {
@@ -24,7 +24,7 @@ export const Autocomplete = ({
         right: '1rem',
         '& i, & svg': {
           fontSize: '1.25rem',
-          color: 'var(--mui-palette-text-primary)'
+          color: 'var(--text-color)'
         },
         '& .MuiAutocomplete-clearIndicator': {
           padding: 2
@@ -39,15 +39,18 @@ export const Autocomplete = ({
     tag: {
       margin: 2,
       borderRadius: 6,
-      // backgroundColor: 'var(--mui-palette-primary-lightOpacity)',
       '& .MuiChip-label': {
         fontSize: '0.75rem'
-      }
+      },
+      '& .MuiChip-deleteIcon': {
+        WebkitTextFillColor: 'rgba(var(--text-rgb-color),0.4)',
+        color: 'rgba(var(--text-rgb-color),0.4)',
+      },
     },
     popupIndicator: {
-      color: 'var(--mui-palette-text-secondary)',
+      color: 'var(--secondary-color)',
       '&:hover': {
-        color: 'var(--mui-palette-primary-main)'
+        color: 'var(--text-color)'
       }
     },
     popupIndicatorOpen: {
@@ -55,7 +58,7 @@ export const Autocomplete = ({
     },
 
     clearIndicator: {
-      color: 'var(--mui-palette-text-secondary)',
+      color: 'var(--secondary-color)',
       '&:hover': {
         color: 'var(--mui-palette-error-main)'
       }
@@ -67,7 +70,7 @@ export const Autocomplete = ({
 
     loading: {
       padding: '0.5rem',
-      color: 'var(--mui-palette-text-secondary)'
+      color: 'var(--secondary-color)'
     },
 
     noOptions: {
@@ -115,7 +118,9 @@ export const Autocomplete = ({
       fontWeight: 600,
       padding: '4px 12px',
       fontSize: '0.75rem',
-      color: 'var(--text-color)'
+      color: 'var(--text-color)',
+      lineHeight: '24px',
+      backgroundColor: 'transparent',
     },
 
     groupUl: {

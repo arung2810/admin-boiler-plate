@@ -19,13 +19,10 @@ function AutocompletePage() {
   });
   const [copySuccess, setCopySuccess] = useState(false);
 
-  const options = top100Films.map((option) => {
-    const firstLetter = option.title[0].toUpperCase();
-    return {
-      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
-      ...option,
-    };
-  });
+  const options = top100Films.map((film) => ({
+    ...film,
+    firstLetter: film.title[0].toUpperCase(),
+  }));
 
   const codeStringVariant = `// If you want to change the style of the autocompleted, you can do so in the theme.js file
 // MUI Imports
@@ -120,7 +117,7 @@ const AutocompleteCheckbox = () => {
           multiple
           id="checkboxes-tags-demo"
           options={top100Films}
-          getOptionLabel={(option) => option.title}
+          getOptionLabel={(option) => option.title || ''}
           renderOption={(props, option, { selected }) => {
             const { key, ...optionProps } = props;
             return (
@@ -155,7 +152,7 @@ const AutocompleteLimitTags = () => {
           limitTags={2}
           id="multiple-limit-tags"
           options={top100Films}
-          getOptionLabel={(option) => option.title}
+          getOptionLabel={(option) => option.title || ''}
           defaultValue={[top100Films[13], top100Films[12], top100Films[11]]}
           renderInput={(params) => <TextField {...params} variant="outlined" label="Checkboxes" />}
         />
@@ -283,7 +280,7 @@ const AutocompleteGrouped = () => {
           id="multiple-limit-tags"
           options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
           groupBy={(option) => option.firstLetter}
-          getOptionLabel={(option) => option.title}
+          getOptionLabel={(option) => option.title || ''}
           renderInput={(params) => <TextField {...params} label="With categories" />}
         />
       </Grid>
@@ -340,19 +337,33 @@ export default AutocompleteGrouped`;
             <Stack gap={2} className="w-full">
               <Grid container spacing={3}>
                 <Grid size={{ xs: 12, md: 4 }}>
+                  {/* <Autocomplete
+                    disablePortal
+                    variant="standard"
+                    options={top100Films}
+                    renderInput={(params) => <TextField {...params} variant="outlined" label="Movie" />}
+                  /> */}
                   <Autocomplete
                     disablePortal
                     variant="standard"
                     options={top100Films}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} variant="outlined" label="Movie" />}
                   />
                 </Grid>
 
                 <Grid size={{ xs: 12, md: 4 }}>
+                  {/* <Autocomplete
+                    disablePortal
+                    variant="filled"
+                    options={top100Films}
+                    renderInput={(params) => <TextField {...params} variant="filled" label="Movie" />}
+                  /> */}
                   <Autocomplete
                     disablePortal
                     variant="filled"
                     options={top100Films}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} variant="filled" label="Movie" />}
                   />
                 </Grid>
@@ -362,6 +373,7 @@ export default AutocompleteGrouped`;
                     disablePortal
                     variant="filled"
                     options={top100Films}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} variant="standard" label="Movie" />}
                   />
                 </Grid>
@@ -405,6 +417,7 @@ export default AutocompleteGrouped`;
                     multiple
                     variant="standard"
                     options={top100Films}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} variant="outlined" label="Movie" />}
                   />
                 </Grid>
@@ -415,6 +428,7 @@ export default AutocompleteGrouped`;
                     multiple
                     variant="filled"
                     options={top100Films}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} variant="filled" label="Movie" />}
                   />
                 </Grid>
@@ -425,6 +439,7 @@ export default AutocompleteGrouped`;
                     multiple
                     variant="filled"
                     options={top100Films}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} variant="standard" label="Movie" />}
                   />
                 </Grid>
@@ -434,7 +449,7 @@ export default AutocompleteGrouped`;
                     multiple
                     id="checkboxes-tags-demo"
                     options={top100Films}
-                    getOptionLabel={(option) => option.title}
+                    getOptionLabel={(option) => option.title || ''}
                     renderOption={(props, option, { selected }) => {
                       const { key, ...optionProps } = props;
                       return (
@@ -488,7 +503,7 @@ export default AutocompleteGrouped`;
                     multiple
                     id="checkboxes-tags-demo"
                     options={top100Films}
-                    getOptionLabel={(option) => option.title}
+                    getOptionLabel={(option) => option.title || ''}
                     renderOption={(props, option, { selected }) => {
                       const { key, ...optionProps } = props;
                       return (
@@ -543,7 +558,7 @@ export default AutocompleteGrouped`;
                     limitTags={2}
                     id="multiple-limit-tags"
                     options={top100Films}
-                    getOptionLabel={(option) => option.title}
+                    getOptionLabel={(option) => option.title || ''}
                     defaultValue={[top100Films[13], top100Films[12], top100Films[11]]}
                     renderInput={(params) => <TextField {...params} variant="outlined" label="Checkboxes" />}
                   />
@@ -701,7 +716,7 @@ export default AutocompleteGrouped`;
                     id="multiple-limit-tags"
                     options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
                     groupBy={(option) => option.firstLetter}
-                    getOptionLabel={(option) => option.title}
+                    getOptionLabel={(option) => option.title || ''}
                     renderInput={(params) => <TextField {...params} label="With categories" />}
                   />
                 </Grid>
