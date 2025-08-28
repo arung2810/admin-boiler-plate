@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, IconButton, Paper, Stack, Typography, Tooltip, Snackbar, Pagination, Skeleton, Grid } from '@mui/material';
+import { Box, IconButton, Paper, Stack, Typography, Tooltip, Snackbar, Skeleton, Grid } from '@mui/material';
 import { RiCodeSSlashFill } from "react-icons/ri";
 import { TbCopy } from "react-icons/tb";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';

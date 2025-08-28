@@ -19,7 +19,7 @@ export const ListItem = {
       color: "var(--text-color)",
       "&:hover": {
         backgroundColor: "rgba(var(--primary-rgb-color), 0.2)",
-        color: "var(--white-color)",
+        // color: "var(--white-color)",
       },
       "&.Mui-selected": {
         backgroundColor: "var(--primary-color)",

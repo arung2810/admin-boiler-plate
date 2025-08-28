@@ -35,7 +35,7 @@ export const Slider = {
             '&:hover, &.Mui-focusVisible': {
               boxShadow: '0 0 0 7px rgba(var(--_slider-rgb), 0.12)',
             },
-            '&.Mui-active.Mui-focusVisible': {
+            '&.Mui-active, &.Mui-active.Mui-focusVisible': {
               boxShadow: '0 0 0 10px rgba(var(--_slider-rgb), 0.16)',
             },
           }
@@ -53,7 +53,7 @@ export const Slider = {
       '&:hover, &.Mui-focusVisible': {
         boxShadow: '0 0 0 8px rgba(var(--_slider-rgb), 0.16)',
       },
-      '&.Mui-active.Mui-focusVisible': {
+      '&.Mui-active, &.Mui-active.Mui-focusVisible': {
         boxShadow: '0 0 0 13px rgba(var(--_slider-rgb), 0.20)',
       },
     }),
@@ -73,12 +73,18 @@ export const Slider = {
       }),
     }),
 
+    mark:{
+      backgroundColor: 'var(--_slider-color)',
+    },
+
     valueLabel: ({ theme, ownerState }) => ({
       ...(ownerState.size === 'small'
         ? { ...theme.typography.caption, padding: theme.spacing(0.5, 2), borderRadius: 'var(--mui-shape-customBorderRadius-sm)' }
         : { ...theme.typography.body2, fontWeight: theme.typography.fontWeightMedium, padding: theme.spacing(0.5, 2.5), borderRadius: 'var(--mui-shape-borderRadius)' }),
-      color: 'var(--mui-palette-customColors-tooltipText)',
-      backgroundColor: 'var(--mui-palette-Tooltip-bg)',
+      color: 'var(--card-bg-color)',
+      backgroundColor: 'var(--text-color)',
+      borderRadius: '4px',
+      padding: '4px 12px',
       '&:before': { display: 'none' },
     }),
   },
