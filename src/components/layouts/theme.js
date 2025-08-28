@@ -28,6 +28,7 @@ import { Drawer } from '../common/Drawer';
 import { Popover } from '../common/Popover';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 import { Popper } from '../common/Popper';
+import { Slider } from '../common/Slider';
 
 const getTheme = () =>
   createTheme({
@@ -235,6 +236,9 @@ const getTheme = () =>
       MuiPopper: {
         ...Popper
       },
+      MuiSlider: {
+        ...Slider
+      }
     },
   });
 
