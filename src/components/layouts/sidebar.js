@@ -59,6 +59,7 @@ const menuItems = [
       { label: "Autocomplete", path: "/autocomplete" },
       { label: "Date & Time Pickers", path: "/datepicker" },
       { label: "Slider", path: "/slider" },
+      { label: "File Upload", path: "/file-upload" },
     ]
   }
 ];

@@ -13,6 +13,7 @@ function DatepickerPage() {
     basic: false,
     minmax: false,
     rangepicker: false,
+    specificrange: false,
   });
   const [copySuccess, setCopySuccess] = useState(false);
 
@@ -139,6 +140,7 @@ export default DatePickerMinMax`;
   const codeStringRangePicker = `// If you want to change the style of the datepicker, you can do so in the datepicker.js file
 // MUI Imports
 import ReactDatepicker from '../../../components/common/Datepicker';
+import { format, subDays, addDays, setHours, setMinutes } from 'date-fns';
 
 const DatePickerRangePicker = () => {
   // State
@@ -160,6 +162,17 @@ const DatePickerRangePicker = () => {
     setStartDateRange(start)
     setEndDateRange(end)
   }
+
+  const CustomInput = forwardRef((props, ref) => {
+    const { label, start, end, ...rest } = props
+
+    const startDate = format(start, 'MM/dd/yyyy')
+    const endDate = end !== null ? \` - \${format(end, 'MM/dd/yyyy')}\` : null;
+
+    const value = \`\${startDate}\${endDate !== null ? endDate : ''}\`
+
+    return <CustomTextField fullWidth inputRef={ref} {...rest} label={label} value={value} />
+  })
 
   return (
     <Grid container spacing={3}>
@@ -194,11 +207,57 @@ const DatePickerRangePicker = () => {
 
 export default DatePickerRangePicker`;
 
+  const codeStringSpecificRange = `// If you want to change the style of the datepicker, you can do so in the datepicker.js file
+// MUI Imports
+import { format, subDays, addDays, setHours, setMinutes } from 'date-fns';
+import ReactDatepicker from '../../../components/common/Datepicker';
+import CustomTextField from '../../../components/common/CustomTextField';
+
+const DatePickerSpecificRange = () => {
+  // State
+  const [date, setDate] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  
+  const [minDate, setMinDate] = useState(new Date());
+  const [maxDate, setMaxDate] = useState(new Date());
+
+  return (
+    <Grid container spacing={3}>
+      <Grid size={{ xs: 12, md: 4 }}>
+        <ReactDatepicker
+          selected={date}
+          id='specific-date'
+          minDate={new Date()}
+          maxDate={addDays(new Date(), 5)}
+          onChange={date => setDate(date)}
+          customInput={<CustomTextField label='Specific Date Range' fullWidth />}
+        />
+      </Grid>
+      <Grid size={{ xs: 12, md: 4 }}>
+        <ReactDatepicker
+          showTimeSelect
+          selected={time}
+          id='specific-time'
+          dateFormat='MM/dd/yyyy h:mm aa'
+          onChange={date => setTime(date)}
+          minTime={setHours(setMinutes(new Date(), 0), 17)}
+          maxTime={setHours(setMinutes(new Date(), 30), 20)}
+          customInput={<CustomTextField label='Specific Time' fullWidth />}
+        />
+      </Grid>
+    </Grid>
+    </Grid>
+  )
+}
+
+export default DatePickerSpecificRange`;
+
   const handleCopy = async (codeKey) => {
     const codeMap = {
       basic: codeStringBasic,
       minmax: codeStringMinMax,
       rangepicker: codeStringRangePicker,
+      specificrange: codeStringSpecificRange
     };
 
     try {
@@ -397,12 +456,12 @@ export default DatePickerRangePicker`;
             <Typography variant="h6" className='page-title'>Date Range Pickers</Typography>
             <Stack direction="row" spacing={1}>
               <Tooltip title="Show Code">
-                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, rangepicker: !prev.rangepicker }))}>
+                <IconButton className='icon-button' onClick={() => setShowCode(prev => ({ ...prev, specificrange: !prev.specificrange }))}>
                   <RiCodeSSlashFill />
                 </IconButton>
               </Tooltip>
               <Tooltip title="Copy Code">
-                <IconButton className='icon-button' onClick={() => handleCopy("rangepicker")}>
+                <IconButton className='icon-button' onClick={() => handleCopy("specificrange")}>
                   <TbCopy />
                 </IconButton>
               </Tooltip>
@@ -437,10 +496,10 @@ export default DatePickerRangePicker`;
               </Grid>
             </Stack>
 
-            {showCode.rangepicker && (
+            {showCode.specificrange && (
               <Box className="code-block w-full" sx={{ position: 'relative' }}>
                 <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
-                  {codeStringRangePicker}
+                  {codeStringSpecificRange}
                 </SyntaxHighlighter>
               </Box>
             )}

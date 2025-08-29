@@ -36,6 +36,7 @@ import BreadcrumbPage from '../pages/Component/Breadcrumbs';
 import PopperPage from '../pages/Component/Popper';
 import SkeletonPage from '../pages/Component/Skeleton';
 import SliderPage from '../pages/FormElement/Slider/';
+import FileUploadPage from '../pages/FormElement/FileUpload';
 
 function AppRouter() {
   return (
@@ -81,6 +82,7 @@ function AppRouter() {
           <Route path="/popper" element={<PopperPage />} />
           <Route path="/skeleton" element={<SkeletonPage />} />
           <Route path="/slider" element={<SliderPage />} />
+          <Route path="/file-upload" element={<FileUploadPage />} />
         </Route>
       </Routes>
     </Router>
