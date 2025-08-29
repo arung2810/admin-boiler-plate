@@ -44,6 +44,9 @@ const menuItems = [
       { label: "Breadcrumbs", path: "/breadcrumbs" },
       { label: "Popper", path: "/popper" },
       { label: "Skeleton", path: "/skeleton" },
+      { label: "Tooltips", path: "/tooltips" },
+      { label: "Backdrop", path: "/backdrop" },
+      { label: "Speed Dial", path: "/speed-dial" },
     ],
   },
   {

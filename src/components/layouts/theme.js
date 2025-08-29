@@ -29,6 +29,8 @@ import { Popover } from '../common/Popover';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 import { Popper } from '../common/Popper';
 import { Slider } from '../common/Slider';
+import { Skeleton } from '../common/Skeleton';
+import { SpeedDial } from '../common/SpeedDial';
 
 const getTheme = () =>
   createTheme({
@@ -238,7 +240,13 @@ const getTheme = () =>
       },
       MuiSlider: {
         ...Slider
-      }
+      },
+      MuiSkeleton: { 
+        ...Skeleton
+     },
+     MuiSpeedDial: {
+      ...SpeedDial,
+    },
     },
   });
 
