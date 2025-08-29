@@ -29,6 +29,7 @@ import { Popover } from '../common/Popover';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 import { Popper } from '../common/Popper';
 import { Slider } from '../common/Slider';
+import { IconButton } from '../common/ButtonIcon';
 
 const getTheme = () =>
   createTheme({
@@ -97,6 +98,9 @@ const getTheme = () =>
       },
       MuiButton: {
         ...Button,
+      },
+      MuiIconButton: {
+        ...IconButton,
       },
       MuiCheckbox: {
         ...Checkbox,
