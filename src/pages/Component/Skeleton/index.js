@@ -27,13 +27,28 @@ export default function Variants() {
       <Skeleton variant="rounded" width={210} height={60} />
     </Stack>
   );
-}
-`;
+}`;
+  const codeStringSkeletonAnimations = `
+// If you want to change the style of the Skeleton, you can do so in the theme.js file
+import * as React from 'react';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+
+export default function Animations() {
+  return (
+    <Stack spacing={1}>
+      <Skeleton />
+      <Skeleton animation="wave" />
+      <Skeleton animation={false} />
+    </Stack>
+  );
+}`;
 
 
   const handleCopy = async (codeKey) => {
     const codeMap = {
       skeletonVariants: codeStringSkeletonVariants,
+      skeletonAnimations: codeStringSkeletonAnimations,
 
     };
 
@@ -83,6 +98,41 @@ export default function Variants() {
                   <Box className="code-block" sx={{ position: 'relative' }}>
                     <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
                       {codeStringSkeletonVariants}
+                    </SyntaxHighlighter>
+                  </Box>
+                )}
+              </Stack>
+            </Paper>
+          </Grid>
+          <Grid size={{ xs: 12, md: 6 }}>
+            {/* Animations */}
+            <Paper elevation={0}>
+              <Stack direction="row" alignItems="center" justifyContent="space-between" mb={2}>
+                <Typography variant="h6" className="page-title">Animations</Typography>
+                <Stack direction="row" spacing={1}>
+                  <Tooltip title="Show Code">
+                    <IconButton className='icon-button' onClick={() => setShowCode((prev) => ({ ...prev, skeletonAnimations: !prev.skeletonAnimations }))}>
+                      <RiCodeSSlashFill />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Copy Code">
+                    <IconButton className='icon-button' onClick={() => handleCopy("skeletonAnimations")}>
+                      <TbCopy />
+                    </IconButton>
+                  </Tooltip>
+                </Stack>
+              </Stack>
+              <Stack gap={3}>
+                <Stack gap={1}>
+                  <Skeleton />
+                  <Skeleton animation="wave" />
+                  <Skeleton animation={false} />
+                </Stack>          
+
+                {showCode.skeletonAnimations && (
+                  <Box className="code-block" sx={{ position: 'relative' }}>
+                    <SyntaxHighlighter language="jsx" style={vscDarkPlus} wrapLongLines>
+                      {codeStringSkeletonAnimations}
                     </SyntaxHighlighter>
                   </Box>
                 )}
