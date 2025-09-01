@@ -37,6 +37,9 @@ import PopperPage from '../pages/Component/Popper';
 import SkeletonPage from '../pages/Component/Skeleton';
 import SliderPage from '../pages/FormElement/Slider/';
 import FileUploadPage from '../pages/FormElement/FileUpload';
+import TooltipsPage from '../pages/Component/Tooltips';
+import BackdropPage from '../pages/Component/Backdrop';
+import SpeedDialPage from '../pages/Component/SpeedDial';
 
 function AppRouter() {
   return (
@@ -83,6 +86,9 @@ function AppRouter() {
           <Route path="/skeleton" element={<SkeletonPage />} />
           <Route path="/slider" element={<SliderPage />} />
           <Route path="/file-upload" element={<FileUploadPage />} />
+          <Route path="/tooltips" element={<TooltipsPage />} />
+          <Route path="/backdrop" element={<BackdropPage />} />
+          <Route path="/speed-dial" element={<SpeedDialPage />} />
         </Route>
       </Routes>
     </Router>
