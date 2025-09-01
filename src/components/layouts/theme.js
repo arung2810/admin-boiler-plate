@@ -29,6 +29,7 @@ import { Popover } from '../common/Popover';
 import { Breadcrumbs } from '../common/Breadcrumbs';
 import { Popper } from '../common/Popper';
 import { Slider } from '../common/Slider';
+import { IconButton } from '../common/ButtonIcon';
 import { Skeleton } from '../common/Skeleton';
 import { SpeedDial } from '../common/SpeedDial';
 
@@ -99,6 +100,9 @@ const getTheme = () =>
       },
       MuiButton: {
         ...Button,
+      },
+      MuiIconButton: {
+        ...IconButton,
       },
       MuiCheckbox: {
         ...Checkbox,
