@@ -11,7 +11,7 @@ const AppLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(!isMobile); // closed on mobile, open on desktop
 
     useEffect(() => {
-        const currentTheme = localStorage.getItem("theme") || "dark";
+        const currentTheme = localStorage.getItem("theme") || "light";
         document.documentElement.setAttribute("data-theme", currentTheme);
     }, []);
 
