@@ -55,9 +55,9 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
       borderColor: 'var(--red-color)'
     },
     '&.Mui-focused': {
-      borderWidth: 2,
+      borderWidth: 1,
       '& :not(textarea).MuiFilledInput-input': {
-        padding: '7px 15px'
+        padding: '8px 15px'
       },
       '&:not(.Mui-error).MuiInputBase-colorPrimary': {
         borderColor: 'var(--primary-color)',
@@ -141,7 +141,7 @@ const TextFieldStyled = styled(TextField)(({ theme }) => ({
   },
   '& .MuiInputBase-input': {
     '&:not(textarea).MuiInputBase-inputSizeSmall': {
-      padding: '8px 16px'
+      padding: '8px 15px'
     },
     '&:not(.MuiInputBase-readOnly):not([readonly])::placeholder': {
       transition: theme.transitions.create(['opacity', 'transform'], {

@@ -7,7 +7,7 @@ import {
   LuChevronRight,
 } from "react-icons/lu";
 import { IoMdLogOut } from "react-icons/io";
-import { TbSmartHome } from "react-icons/tb";
+import { TbSmartHome, TbTemplate } from "react-icons/tb";
 import SiteLogo from "../../assets/images/logo.png";
 
 const menuItems = [
@@ -64,7 +64,12 @@ const menuItems = [
       { label: "Slider", path: "/slider" },
       { label: "File Upload", path: "/file-upload" },
     ]
-  }
+  },
+  {
+    label: "Starter Template",
+    icon: <TbTemplate />,
+    path: "/starter-template",
+  },
 ];
 
 const SidebarContent = ({
