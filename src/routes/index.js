@@ -40,6 +40,7 @@ import FileUploadPage from '../pages/FormElement/FileUpload';
 import TooltipsPage from '../pages/Component/Tooltips';
 import BackdropPage from '../pages/Component/Backdrop';
 import SpeedDialPage from '../pages/Component/SpeedDial';
+import StarterTemplate from '../pages/StarterTemplate';
 
 function AppRouter() {
   return (
@@ -89,6 +90,7 @@ function AppRouter() {
           <Route path="/tooltips" element={<TooltipsPage />} />
           <Route path="/backdrop" element={<BackdropPage />} />
           <Route path="/speed-dial" element={<SpeedDialPage />} />
+          <Route path="/starter-template" element={<StarterTemplate />} />
         </Route>
       </Routes>
     </Router>
