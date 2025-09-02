@@ -58,7 +58,7 @@ function Dashboard() {
                   <Typography variant="subtitle1" mb={1}>
                     {item.label}
                   </Typography>
-                  <Typography variant="h3" className="fw-700">
+                  <Typography variant="h3" className="fw-700 text-primary">
                     {item.count}
                   </Typography>
                 </Stack>
